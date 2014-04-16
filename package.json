@@ -1,0 +1,13 @@
+{
+    "name": "dwollaBees",
+    "version": "0.0.1",
+    "main": "app/script.js",
+    "scripts": {
+        "test": "echo \"Error: no text specified\" && exit 1"
+    },
+    "dependencies": {
+        "mkdirp": "0.3.5"
+    },
+    "author": "Troy Blank",
+    "license": "BSD"
+}
