@@ -1,4 +1,4 @@
-/* line 80, ../../../sass/_base.scss */
+/* line 81, ../../../sass/_base.scss */
 .page__header .title, .report__score .data {
   font-family: 'Oswald', sans-serif;
 }
@@ -69,88 +69,100 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 12, ../../../sass/styles.scss */
+html,
+body {
+  width: 100%;
+}
+
+/* line 17, ../../../sass/styles.scss */
 html {
   font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #fafafa;
 }
 
-/* line 17, ../../../sass/styles.scss */
+/* line 22, ../../../sass/styles.scss */
 body {
   background: #292b2b;
 }
 
-/* line 26, ../../../sass/styles.scss */
+/* line 31, ../../../sass/styles.scss */
 h1, .alpha {
   font-size: 2.25em;
 }
 
-/* line 27, ../../../sass/styles.scss */
+/* line 32, ../../../sass/styles.scss */
 h2, .beta {
   font-size: 1.5em;
 }
 
-/* line 28, ../../../sass/styles.scss */
+/* line 33, ../../../sass/styles.scss */
 h3, .gamma {
   font-size: 1.3125em;
 }
 
-/* line 29, ../../../sass/styles.scss */
+/* line 34, ../../../sass/styles.scss */
 h4, .delta {
   font-size: 1.125em;
 }
 
-/* line 30, ../../../sass/styles.scss */
+/* line 35, ../../../sass/styles.scss */
 h5, .epsilon {
   font-size: 1em;
 }
 
-/* line 31, ../../../sass/styles.scss */
+/* line 36, ../../../sass/styles.scss */
 h6, .zeta {
   font-size: 0.875em;
 }
 
-/* line 33, ../../../sass/styles.scss */
+/* line 38, ../../../sass/styles.scss */
 .giga {
   font-size: 4.5em;
 }
 
-/* line 34, ../../../sass/styles.scss */
+/* line 39, ../../../sass/styles.scss */
 .mega {
   font-size: 3.75em;
 }
 
-/* line 35, ../../../sass/styles.scss */
+/* line 40, ../../../sass/styles.scss */
 .kilo {
   font-size: 3em;
 }
 
-/* line 37, ../../../sass/styles.scss */
+/* line 42, ../../../sass/styles.scss */
 small,
 .milli {
   font-size: 0.75em;
 }
 
-/* line 45, ../../../sass/styles.scss */
+/* line 50, ../../../sass/styles.scss */
 .page {
   padding: 1em;
 }
 
-/* line 50, ../../../sass/styles.scss */
+/* line 55, ../../../sass/styles.scss */
 .page__header .title {
   font-weight: 300;
   text-transform: uppercase;
 }
 
-/* line 63, ../../../sass/styles.scss */
+/* line 68, ../../../sass/styles.scss */
 .report__score .data {
   font-size: 9em;
 }
-/* line 67, ../../../sass/styles.scss */
+/* line 72, ../../../sass/styles.scss */
 .report__score .data:after {
   content: "";
-  font-size: 50%;
+  font-size: 35%;
 }
-/* line 72, ../../../sass/styles.scss */
+/* line 77, ../../../sass/styles.scss */
 .report__score .data.up:after {
-  content: "\21E7";
+  content: "\25B2";
+  color: #1ba84a;
+}
+/* line 82, ../../../sass/styles.scss */
+.report__score .data.down:after {
+  content: "\25BC";
+  color: red;
 }

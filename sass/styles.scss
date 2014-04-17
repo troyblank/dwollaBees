@@ -9,6 +9,11 @@
 // Global
 // ==========================================================================
 
+html,
+body {
+  width: 100%;
+}
+
 html {
   font: 1em/1.5 $font-sans-serif;
   color: $color-white;
@@ -66,11 +71,17 @@ small,
 
     &:after {
       content: "";
-      font-size: 50%;
+      font-size: 35%;
     }
 
     &.up:after {
-      content: "\21E7";
+      content: "\25B2";
+      color: $color-green;
+    }
+
+    &.down:after {
+      content: "\25BC";
+      color: red;
     }
   }
 }
