@@ -6,7 +6,10 @@
         "test": "echo \"Error: no text specified\" && exit 1"
     },
     "dependencies": {
-        "mkdirp": "0.3.5"
+        "mkdirp": "0.3.5",
+        "express": "3.4.8",
+        "nunjucks": "1.0.1",
+        "walk": "2.3.1"
     },
     "author": "Troy Blank",
     "license": "BSD"
