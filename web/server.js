@@ -34,6 +34,10 @@ var server = {
         }
     },
 
+    prettyUpDate: function(date) {
+        return date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+    },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -58,7 +62,7 @@ var server = {
 
         function respond(date, data) {
             res.send(nunjucks.render('home.html', {
-                'date': date,
+                'date': server.prettyUpDate(date),
                 'data': data
             }));
         }
