@@ -21,10 +21,16 @@ var server = {
         console.log('Listening on port 8000');
     },
 
+    // getDaysData: function(date) {
+
+    // },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
     home: function(req, res) {
+        //var today = new Date();
+
         res.send(nunjucks.render('home.html'));
     },
 
