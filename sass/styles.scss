@@ -1,3 +1,76 @@
-@import "base";
+// Imports
+// ==========================================================================
 
+@import "base";
 @import "Compass/reset";
+
+
+
+// Global
+// ==========================================================================
+
+html {
+  font: 1em/1.5 $font-sans-serif;
+  color: $color-white;
+}
+
+body {
+  background: $color-dark;
+}
+
+
+
+// Font sizing
+// ==========================================================================
+
+h1, .alpha   { font-size: $font-size-alpha; }
+h2, .beta    { font-size: $font-size-beta; }
+h3, .gamma   { font-size: $font-size-gamma; }
+h4, .delta   { font-size: $font-size-delta; }
+h5, .epsilon { font-size: $font-size-epsilon; }
+h6, .zeta    { font-size: $font-size-zeta; }
+
+.giga { font-size: $font-size-giga; }
+.mega { font-size: $font-size-mega; }
+.kilo { font-size: $font-size-kilo; }
+
+small, 
+.milli { font-size: $font-size-milli; }
+
+
+
+// Layout
+// ==========================================================================
+
+.page {
+  padding: 1em;
+}
+
+.page__header {
+  .title {
+    @extend %font-oswald;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+
+
+
+// Report
+// ==========================================================================
+
+.report__score {
+  .data {
+    @extend %font-oswald;
+    font-size: em(144px);
+
+    &:after {
+      content: "";
+      font-size: 50%;
+    }
+
+    &.up:after {
+      content: "\21E7";
+    }
+  }
+}

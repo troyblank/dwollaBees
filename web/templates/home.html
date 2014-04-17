@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>Score: {{ data.score }}</div>
-    <header>
-        <h1>Dwolla Bees</h1>
-    </header>
+  <div class="page__header">
+    <h3 class="title">Dwolla Bees</h3>
+  </div>
+  <div class="page__body">
+    <div class="report">
+      <div class="report__score">
+        <span class="data up">{{ data.score }}</span>
+      </div>
+    </div>
+  </div>
 {% endblock %}

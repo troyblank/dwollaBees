@@ -1,3 +1,8 @@
+/* line 80, ../../../sass/_base.scss */
+.page__header .title, .report__score .data {
+  font-family: 'Oswald', sans-serif;
+}
+
 /* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -61,4 +66,91 @@ a img {
 /* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+}
+
+/* line 12, ../../../sass/styles.scss */
+html {
+  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fafafa;
+}
+
+/* line 17, ../../../sass/styles.scss */
+body {
+  background: #292b2b;
+}
+
+/* line 26, ../../../sass/styles.scss */
+h1, .alpha {
+  font-size: 2.25em;
+}
+
+/* line 27, ../../../sass/styles.scss */
+h2, .beta {
+  font-size: 1.5em;
+}
+
+/* line 28, ../../../sass/styles.scss */
+h3, .gamma {
+  font-size: 1.3125em;
+}
+
+/* line 29, ../../../sass/styles.scss */
+h4, .delta {
+  font-size: 1.125em;
+}
+
+/* line 30, ../../../sass/styles.scss */
+h5, .epsilon {
+  font-size: 1em;
+}
+
+/* line 31, ../../../sass/styles.scss */
+h6, .zeta {
+  font-size: 0.875em;
+}
+
+/* line 33, ../../../sass/styles.scss */
+.giga {
+  font-size: 4.5em;
+}
+
+/* line 34, ../../../sass/styles.scss */
+.mega {
+  font-size: 3.75em;
+}
+
+/* line 35, ../../../sass/styles.scss */
+.kilo {
+  font-size: 3em;
+}
+
+/* line 37, ../../../sass/styles.scss */
+small,
+.milli {
+  font-size: 0.75em;
+}
+
+/* line 45, ../../../sass/styles.scss */
+.page {
+  padding: 1em;
+}
+
+/* line 50, ../../../sass/styles.scss */
+.page__header .title {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* line 63, ../../../sass/styles.scss */
+.report__score .data {
+  font-size: 9em;
+}
+/* line 67, ../../../sass/styles.scss */
+.report__score .data:after {
+  content: "";
+  font-size: 50%;
+}
+/* line 72, ../../../sass/styles.scss */
+.report__score .data.up:after {
+  content: "\21E7";
 }
