@@ -1,4 +1,5 @@
 //google page speed retriver
+//https://developers.google.com/speed/docs/insights/v1/getting_started
 var receiver = require('./receiver.js')
 
 //var CHART_API_URL = 'http://chart.apis.google.com/chart?';
@@ -35,10 +36,10 @@ module.exports = function() {
             'numberJsResources': data.pageStats.numberJsResources,
             'numberCssResources': data.pageStats.numberCssResources,
             //Bar chart/graph?
-            'htmlResponseBytes': data.pageStats.htmlResponseBytes,
-            'imageResponseBytes': data.pageStats.imageResponseBytes,
-            'javascriptResponseBytes': data.pageStats.javascriptResponseBytes,
-            'otherResponseBytes': data.pageStats.otherResponseBytes
+            'htmlResponseBytes': Number(data.pageStats.htmlResponseBytes),
+            'imageResponseBytes': Number(data.pageStats.imageResponseBytes),
+            'javascriptResponseBytes': Number(data.pageStats.javascriptResponseBytes),
+            'otherResponseBytes': Number(data.pageStats.otherResponseBytes)
         });
     }
 

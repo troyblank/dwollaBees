@@ -1,17 +1,27 @@
+//should we use http://gtmetrix.com/api/ ?
+
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var _GPSReceiver = require('./receivers/GPSReceiver.js');
-
-
+var _WPTReceiver = require('./receivers/WPTReceiver.js');
+var _GTMReceiver = require('./receivers/GTMReceiver.js');
 
 var dwollaBees = {
 
     GPSRetriever: new _GPSReceiver(),
+    GTMRetriever: new _GTMReceiver(),
+    WPTRetriever: new _WPTReceiver(),
 
     pageCount: 0,
     pagesToGet: [
         'http://dwolla.com',
         'https://www.dwolla.com/register'
+    ],
+    serviceCount: 0,
+    servicesToCall: [
+        //'WPTRetriever',
+        'GPSRetriever',
+        'GTMRetriever'
     ],
 
     data: new Object(),
@@ -24,7 +34,7 @@ var dwollaBees = {
     //-------------------------------------------
     recieveData: function() {
         var page = dwollaBees.pagesToGet[dwollaBees.pageCount];
-        dwollaBees.GPSRetriever.getData(page, dwollaBees.gotGPSData);
+        dwollaBees[dwollaBees.servicesToCall[dwollaBees.serviceCount]].getData(page, dwollaBees.gotData);
     },
 
     tempStoreData: function(data) {
@@ -61,11 +71,16 @@ var dwollaBees = {
 
     //HANDLERS
     //-------------------------------------------
-    gotGPSData: function(data) {
+    gotData: function(data) {
         dwollaBees.tempStoreData(data);
 
-        //look for more pages to get data on
-        dwollaBees.pageCount++;
+        //look for more services or pages to get data on
+        dwollaBees.serviceCount++;
+        if (dwollaBees.serviceCount >= dwollaBees.servicesToCall.length) {
+            dwollaBees.serviceCount = 0;
+            dwollaBees.pageCount++;
+        }
+        //check for page completion
         if (dwollaBees.pageCount < dwollaBees.pagesToGet.length) {
             dwollaBees.recieveData();
         } else {
