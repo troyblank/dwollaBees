@@ -34,6 +34,10 @@ var server = {
         }
     },
 
+    prettyUpDate: function(date) {
+        return date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+    },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -45,17 +49,23 @@ var server = {
         server.getDaysData(today, function(data) {
             data = data;
             if (data) {
-                res.send(nunjucks.render('home.html', data[server.page]));
+                respond(today, data[server.page]);
             } else {
                 //get yesterdays data
                 today.setDate(today.getDate() - 1);
                 data = server.getDaysData(today, function(data) {
                     data = data;
-
-                    res.send(nunjucks.render('home.html', data[server.page]));
+                    respond(today, data[server.page]);
                 });
             }
         });
+
+        function respond(date, data) {
+            res.send(nunjucks.render('home.html', {
+                'date': server.prettyUpDate(date),
+                'data': data
+            }));
+        }
     },
 
     //---------------------------------------------------------------------------------------------
