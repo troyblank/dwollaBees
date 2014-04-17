@@ -15,17 +15,16 @@ module.exports = function() {
     var API_URL = '/pagespeedonline/v1/runPagespeed';
 
     this.getData = function(page, callback) {
-        console.log('Getting GPS data....');
+        console.log('Getting GPS data for: ' + page);
 
         options.path = API_URL + '?url=' + page + '&key=' + API_KEY;
         var r = new receiver(options, function(data) {
-            console.log('GPS data Received!');
+            console.log('GPS data Received for: ' + page);
             parseData(data, page, callback);
         });
     }
 
     function parseData(data, page, callback) {
-        console.log(data)
         callback({
             '_page': page,
             'score': data.score,
