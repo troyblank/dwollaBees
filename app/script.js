@@ -72,7 +72,9 @@ var dwollaBees = {
     //HANDLERS
     //-------------------------------------------
     gotData: function(data) {
-        dwollaBees.tempStoreData(data);
+        if (data != null) {
+            dwollaBees.tempStoreData(data);
+        }
 
         //look for more services or pages to get data on
         dwollaBees.serviceCount++;

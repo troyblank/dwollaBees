@@ -64,6 +64,7 @@ module.exports = function() {
             parseData(data, page, callback);
         } else if (data.state == 'error') {
             console.log('Error getting data from GTMetrix');
+            callback(null);
         } else {
             setTimeout(function() {
                 console.log('.');
