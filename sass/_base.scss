@@ -55,3 +55,29 @@ $bp-large:  em(1280px);
 $color-dark:  #292b2b;
 $color-white: #fafafa;
 $color-blue:  #1f93d1;
+
+// Fonts
+$font-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-serif: Georgia, Times, "Times New Roman", serif;
+
+// Sizing based on http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+$font-size-giga:      em(72px);
+$font-size-mega:      em(60px);
+$font-size-kilo:      em(48px);
+$font-size-alpha:     em(36px);
+$font-size-beta:      em(24px);
+$font-size-gamma:     em(21px);
+$font-size-delta:     em(18px);
+$font-size-epsilon:   em(16px);
+$font-size-zeta:      em(14px);
+$font-size-milli:     em(12px);
+
+
+
+// Google Web Fonts
+// ==========================================================================
+
+%font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
