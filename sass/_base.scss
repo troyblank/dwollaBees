@@ -1,0 +1,57 @@
+@import "Compass";
+
+
+
+// Functions
+// ==========================================================================
+
+// Calculate em values
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+
+
+// Mixins
+// ==========================================================================
+
+// Named media queries
+
+@mixin at-least($width, $old-ie: "false") {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+ 
+  @if $old-ie == "true" {
+    .lt-ie9 & {
+      @content;
+    }
+  }
+}
+ 
+@mixin until($width, $old-ie: "false") {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+ 
+  @if $old-ie == "true" {
+    .lt-ie9 & {
+      @content;
+    }
+  }
+}
+
+
+
+// Variables
+// ==========================================================================
+
+// Media query breakpoints
+$bp-small:  em(650px);
+$bp-medium: em(1024px);
+$bp-large:  em(1280px);
+
+// Colors
+$color-dark:  #292b2b;
+$color-white: #fafafa;
+$color-blue:  #1f93d1;
