@@ -7,7 +7,8 @@ This is a page speed monitoring tool for Dwolla.com.
 * https://www.dwolla.com/register
 
 ## What we are monitoring
-* score (Google Page Speed)
+- Google Page Speed
+* score 
 * numberResources
 * totalRequestBytes
 * numberStaticResources
@@ -17,3 +18,5 @@ This is a page speed monitoring tool for Dwolla.com.
 * imageResponseBytes
 * javascriptResponseBytes
 * otherResponseBytes
+- GTMetrix
+* pageLoadTime
