@@ -6,9 +6,13 @@ This is a page speed monitoring tool for Dwolla.com.
 node web/server.js - runs web server for presentation  
 node app/script.js - runs daily data grab  
 
+* * *
+
 ## Pages we are monitoring
 * http://dwolla.com
 * https://www.dwolla.com/register
+
+* * *
 
 ## What we are monitoring
 
