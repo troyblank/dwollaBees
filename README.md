@@ -2,6 +2,10 @@
 
 This is a page speed monitoring tool for Dwolla.com.
 
+## Commands
+node web/server.js - runs web server for presentation
+node app/script.js - runs daily data grab
+
 ## Pages we are monitoring
 * http://dwolla.com
 * https://www.dwolla.com/register

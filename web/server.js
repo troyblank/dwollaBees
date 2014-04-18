@@ -25,12 +25,14 @@ var server = {
     getDaysData: function(date, callback) {
         var path = __dirname + '/../app/data/' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + '.json';
 
+
+
         if (fs.existsSync(path)) {
             fs.readFile(path, 'utf8', function(err, data) {
                 callback(JSON.parse(data));
             });
         } else {
-            return false;
+            callback(false);
         }
     },
 
