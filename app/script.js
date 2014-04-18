@@ -4,12 +4,12 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var _GPSReceiver = require('./receivers/GPSReceiver.js');
 var _WPTReceiver = require('./receivers/WPTReceiver.js');
-var _GTMReceiver = require('./receivers/GTMReceiver.js');
+//var _GTMReceiver = require('./receivers/GTMReceiver.js');
 
 var dwollaBees = {
 
     GPSRetriever: new _GPSReceiver(),
-    GTMRetriever: new _GTMReceiver(),
+    //GTMRetriever: new _GTMReceiver(),
     WPTRetriever: new _WPTReceiver(),
 
     pageCount: 0,
@@ -19,9 +19,8 @@ var dwollaBees = {
     ],
     serviceCount: 0,
     servicesToCall: [
-        //'WPTRetriever',
         'GPSRetriever',
-        'GTMRetriever'
+        'WPTRetriever'
     ],
 
     data: new Object(),
