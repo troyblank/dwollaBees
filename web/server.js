@@ -10,7 +10,7 @@ nunjucks.configure(__dirname + '/templates', {
 var server = {
 
     app: express(),
-    page: 'http://dwolla.com',
+    page: 'https://dwolla.com',
 
     initialize: function() {
         server.urlConfs();
@@ -37,7 +37,7 @@ var server = {
     },
 
     prettyUpDate: function(date) {
-        return date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+        return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
     },
 
     //---------------------------------------------------------------------------------------------
