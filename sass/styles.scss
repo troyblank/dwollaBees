@@ -15,7 +15,7 @@ body {
 }
 
 html {
-  font: 1em/1.5 $font-sans-serif;
+  font: 1em/1 $font-sans-serif;
   color: $color-white;
 }
 
@@ -52,9 +52,11 @@ small,
 }
 
 .page__header {
+  margin-bottom: 2em;
+
   .title {
     @extend %font-oswald;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
   }
 }
@@ -64,9 +66,22 @@ small,
 // Report
 // ==========================================================================
 
-.report__score {
+.report__title {
+  margin-bottom: 0.5em;
+  color: rgba($color-white,0.25);
+}
+
+.report {
+  display: inline-block;
+  margin: 0 2em 2em 0;
+
   .data {
     @extend %font-oswald;
+  }
+}
+
+.report__score {
+  .data {
     font-size: em(144px);
 
     &:after {
@@ -81,7 +96,7 @@ small,
 
     &.down:after {
       content: "\25BC";
-      color: red;
+      color: $color-red;
     }
   }
 }

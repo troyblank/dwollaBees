@@ -2,15 +2,26 @@
 
 
 {% block content %}
-    <div>{{ date }}</div>
-
   <div class="page__header">
-    <h3 class="title">Dwolla Bees</h3>
+    <h4 class="title">dwolla.com - {{ date }}</h4>
   </div>
   <div class="page__body">
     <div class="report">
+      <h5 class="report__title">PageSpeed score</h5>
       <div class="report__score">
-        <span class="data up">{{ data.score }}</span>
+        <span class="data down">{{ data.score }}</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title">Load time</h5>
+      <div class="report__load-time">
+        <span class="data kilo">5000 ms</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title">Render time</h5>
+      <div class="report__render-time">
+        <span class="data kilo">2500 ms</span>
       </div>
     </div>
   </div>

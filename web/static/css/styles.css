@@ -1,5 +1,5 @@
-/* line 81, ../../../sass/_base.scss */
-.page__header .title, .report__score .data {
+/* line 82, ../../../sass/_base.scss */
+.page__header .title, .report .data {
   font-family: 'Oswald', sans-serif;
 }
 
@@ -76,13 +76,13 @@ body {
 
 /* line 17, ../../../sass/styles.scss */
 html {
-  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fafafa;
+  font: 1em/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f3ffff;
 }
 
 /* line 22, ../../../sass/styles.scss */
 body {
-  background: #292b2b;
+  background: #212621;
 }
 
 /* line 31, ../../../sass/styles.scss */
@@ -141,28 +141,44 @@ small,
   padding: 1em;
 }
 
-/* line 55, ../../../sass/styles.scss */
+/* line 54, ../../../sass/styles.scss */
+.page__header {
+  margin-bottom: 2em;
+}
+/* line 57, ../../../sass/styles.scss */
 .page__header .title {
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
-/* line 68, ../../../sass/styles.scss */
+/* line 69, ../../../sass/styles.scss */
+.report__title {
+  margin-bottom: 0.5em;
+  color: rgba(243, 255, 255, 0.25);
+}
+
+/* line 74, ../../../sass/styles.scss */
+.report {
+  display: inline-block;
+  margin: 0 2em 2em 0;
+}
+
+/* line 84, ../../../sass/styles.scss */
 .report__score .data {
   font-size: 9em;
 }
-/* line 72, ../../../sass/styles.scss */
+/* line 87, ../../../sass/styles.scss */
 .report__score .data:after {
   content: "";
   font-size: 35%;
 }
-/* line 77, ../../../sass/styles.scss */
+/* line 92, ../../../sass/styles.scss */
 .report__score .data.up:after {
   content: "\25B2";
-  color: #1ba84a;
+  color: #21a642;
 }
-/* line 82, ../../../sass/styles.scss */
+/* line 97, ../../../sass/styles.scss */
 .report__score .data.down:after {
   content: "\25BC";
-  color: red;
+  color: #cc2929;
 }

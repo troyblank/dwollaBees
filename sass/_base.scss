@@ -52,10 +52,11 @@ $bp-medium: em(1024px);
 $bp-large:  em(1280px);
 
 // Colors
-$color-dark:  #292b2b;
-$color-white: #fafafa;
-$color-blue:  #1f93d1;
-$color-green: #1ba84a;
+$color-dark:  #212621;
+$color-white: #f3ffff;
+$color-blue:  #2e7499;
+$color-green: #21a642;
+$color-red:   #cc2929;
 
 // Fonts
 $font-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -81,4 +82,3 @@ $font-size-milli:     em(12px);
 %font-oswald {
   font-family: 'Oswald', sans-serif;
 }
-
