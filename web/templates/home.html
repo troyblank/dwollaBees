@@ -9,19 +9,19 @@
     <div class="report">
       <h5 class="report__title">PageSpeed score</h5>
       <div class="report__score">
-        <span class="data down">{{ data.score }}</span>
+        <span class="data down">{{ data[0].score }}</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title">Load time</h5>
       <div class="report__load-time">
-        <span class="data kilo">{{ data.loadTime }} ms</span>
+        <span class="data kilo">{{ data[0].loadTime }} ms</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title">Render time</h5>
       <div class="report__render-time">
-        <span class="data kilo">{{ data.renderTime }} ms</span>
+        <span class="data kilo">{{ data[0].renderTime }} ms</span>
       </div>
     </div>
   </div>

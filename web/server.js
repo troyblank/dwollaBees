@@ -1,7 +1,6 @@
 var express = require('express');
 var nunjucks = require('nunjucks');
-var fs = require('fs');
-var walk = require('walk');
+var _DateUtil = require('./utils/dateUtil.js');
 
 nunjucks.configure(__dirname + '/templates', {
     autoescape: false
@@ -11,6 +10,8 @@ var server = {
 
     app: express(),
     page: 'https://dwolla.com',
+
+    DateUtil: new _DateUtil(),
 
     initialize: function() {
         server.urlConfs();
@@ -22,24 +23,6 @@ var server = {
         console.log('Listening on port 8000');
     },
 
-    getDaysData: function(date, callback) {
-        var path = __dirname + '/../app/data/' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + '.json';
-
-
-
-        if (fs.existsSync(path)) {
-            fs.readFile(path, 'utf8', function(err, data) {
-                callback(JSON.parse(data));
-            });
-        } else {
-            callback(false);
-        }
-    },
-
-    prettyUpDate: function(date) {
-        return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-    },
-
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -48,23 +31,13 @@ var server = {
         var today = new Date();
         var data = null;
 
-        server.getDaysData(today, function(data) {
-            data = data;
-            if (data) {
-                respond(today, data[server.page]);
-            } else {
-                //get yesterdays data
-                today.setDate(today.getDate() - 1);
-                data = server.getDaysData(today, function(data) {
-                    data = data;
-                    respond(today, data[server.page]);
-                });
-            }
+        server.DateUtil.getDaysData(new Date(), 'daily', 5, server.page, function(data) {
+            respond(data[0].date, data);
         });
 
         function respond(date, data) {
             res.send(nunjucks.render('home.html', {
-                'date': server.prettyUpDate(date),
+                'date': server.DateUtil.prettyUpDate(date),
                 'data': data
             }));
         }
@@ -78,8 +51,6 @@ var server = {
         //static
         server.app.use(express.static(__dirname + '/static'));
     }
-
-
 }
 
 server.initialize();
