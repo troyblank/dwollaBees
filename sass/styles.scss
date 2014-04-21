@@ -23,6 +23,10 @@ body {
   background: $color-dark;
 }
 
+* {
+  @include box-sizing(border-box);
+}
+
 
 
 // Font sizing
@@ -48,7 +52,7 @@ small,
 // ==========================================================================
 
 .page {
-  padding: 1em;
+  padding: 2em;
 }
 
 .page__header {
@@ -61,14 +65,55 @@ small,
   }
 }
 
+hr {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 2em;
+  border: 0;
+  background: rgba($color-white,0.25);
+}
 
 
 // Report
 // ==========================================================================
 
+%legend {
+  color: $color-white; 
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    vertical-align: top;
+  }
+}
+
 .report__title {
   margin-bottom: 0.5em;
   color: rgba($color-white,0.25);
+
+  &.legend--css {
+    @extend %legend;
+
+    &:before { background: $color-blue; }
+  }
+
+  &.legend--js {
+    @extend %legend;
+    &:before { background: $color-green; }
+  }
+
+  &.legend--images {
+    @extend %legend;
+    &:before { background: $color-red; }
+  }
+
+  &.legend--other {
+    @extend %legend;
+    &:before { background: yellow; }
+  }
 }
 
 .report {
@@ -77,6 +122,15 @@ small,
 
   .data {
     @extend %font-oswald;
+  }
+}
+
+.report--breakdown {
+  @extend .report;
+  width: 100%;
+
+  @include at-least($bp-small) {
+    min-width: em(300px);
   }
 }
 
@@ -100,3 +154,58 @@ small,
     }
   }
 }
+
+%bar-graph__data {
+  position: relative;
+  display: inline-block;
+}
+
+.bar-graph__data--css,
+.bar-graph__data--js,
+.bar-graph__data--img,
+.bar-graph__data--other {
+  @extend %bar-graph__data;
+  padding: 2em 0;
+}
+
+.bar-graph__data--css {
+  background: $color-blue;
+}
+
+.bar-graph__data--js {
+  background: $color-green;
+}
+
+.bar-graph__data--img {
+  background: $color-red;
+}
+
+.bar-graph__data--other {
+  background: yellow;
+}
+
+.report__legend {
+  & > li {
+    @extend %font-oswald;
+    display: inline-block;
+    margin: 0 1em 0 0;
+    font-weight: 300;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      margin-right: 0.25em;
+      background: $color-blue;
+    }
+  }
+
+  strong {
+    display: inline-block;
+    margin-right: 0.25em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+

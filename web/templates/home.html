@@ -24,5 +24,45 @@
         <span class="data kilo">{{ data[0].renderTime }} ms</span>
       </div>
     </div>
+    <hr>
+    <div class="report">
+      <h5 class="report__title">Resources</h5>
+      <div>
+        <span class="data giga">54</span>
+      </div>
+    </div>
+    <div class="report--breakdown">
+      <h5 class="report__title">Breakdown</h5>
+      <ul class="bar-graph">
+        <li class="bar-graph__data--css" style="width: 8%"></li
+        ><li class="bar-graph__data--js" style="width: 25%"></li
+        ><li class="bar-graph__data--img" style="width: 50%"></li
+        ><li class="bar-graph__data--other" style="width: 17%"></li>
+      </ul>
+    </div>
+    <div class="report">
+      <h5 class="report__title legend--css">CSS</h5>
+      <div class="report__render-time">
+        <span class="data beta">3 / 200kb</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title legend--js">JS</h5>
+      <div class="report__render-time">
+        <span class="data beta">9 / 200kb</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title legend--images">Images</h5>
+      <div class="report__render-time">
+        <span class="data beta">18 / 200kb</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title legend--other">Other</h5>
+      <div class="report__render-time">
+        <span class="data beta">7 / 200kb</span>
+      </div>
+    </div>
   </div>
 {% endblock %}
