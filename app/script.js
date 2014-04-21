@@ -14,9 +14,9 @@ var dwollaBees = {
 
     pageCount: 0,
     pagesToGet: [
-        'http://dwolla.com',
-        'http://dwolla.com/login',
-        'http://dwolla.com/about',
+        'https://dwolla.com',
+        'https://dwolla.com/login',
+        'https://dwolla.com/about',
         'https://www.dwolla.com/register'
     ],
     serviceCount: 0,
