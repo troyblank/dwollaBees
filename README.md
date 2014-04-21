@@ -19,14 +19,17 @@ node app/script.js - runs daily data grab
 ### Google Page Speed
 * score 
 * numberResources
-* totalRequestBytes
 * numberStaticResources
-* numberJsResources
-* numberCssResources
-* htmlResponseBytes
-* imageResponseBytes
-* javascriptResponseBytes
-* otherResponseBytes
+
 ### Web Page Test
+* speedIndex (first view)
 * loadTime (first view averaged with a repeat view)
 * renderTime (first view averaged with a repeat view)
+* numberJsResources (first view)
+* jsResponseBytes (first view)
+* numberCssResources (first view)
+* cssResponseBytes (first view)
+* numberImageResources (first view)
+* imageResponseBytes (first view)
+* numberOtherResources (first view)
+* otherResponseBytes (first view)

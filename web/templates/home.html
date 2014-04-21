@@ -28,7 +28,7 @@
     <div class="report">
       <h5 class="report__title">Resources</h5>
       <div>
-        <span class="data giga">54</span>
+        <span class="data giga">{{ data[0].numberResources }}</span>
       </div>
     </div>
     <div class="report--breakdown">
@@ -43,25 +43,25 @@
     <div class="report">
       <h5 class="report__title legend--css">CSS</h5>
       <div class="report__render-time">
-        <span class="data beta">3 / 200kb</span>
+        <span class="data beta">{{ data[0].numberCssResources }} / 200kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--js">JS</h5>
       <div class="report__render-time">
-        <span class="data beta">9 / 200kb</span>
+        <span class="data beta">{{ data[0].numberJsResources }} / 200kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--images">Images</h5>
       <div class="report__render-time">
-        <span class="data beta">18 / 200kb</span>
+        <span class="data beta">{{ data[0].numberImageResources }} / 200kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--other">Other</h5>
       <div class="report__render-time">
-        <span class="data beta">7 / 200kb</span>
+        <span class="data beta">{{ data[0].numberOtherResources }} / 200kb</span>
       </div>
     </div>
   </div>
