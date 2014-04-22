@@ -7,21 +7,28 @@
   </div>
   <div class="page__body">
     <div class="report">
-      <h5 class="report__title">PageSpeed score</h5>
+      <h5 class="report__title"><a href="https://developers.google.com/speed/docs/insights/using_firefox?hl=de-DE#scores">PageSpeed score</a> &#10033;</h5>
       <div class="report__score">
         <span class="data down">{{ data.score }}</span>
       </div>
     </div>
     <div class="report">
+      <h5 class="report__title"><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a> &#10033;</h5>
+      <div>
+        <span class="data giga">2701</span>
+      </div>
+    </div>
+    <hr class="hidden">
+    <div class="report">
       <h5 class="report__title">Load time</h5>
       <div class="report__load-time">
-        <span class="data kilo">{{ data.loadTime }} ms</span>
+        <span class="data alpha">{{ data.loadTime }} ms</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title">Render time</h5>
       <div class="report__render-time">
-        <span class="data kilo">{{ data.renderTime }} ms</span>
+        <span class="data alpha">{{ data.renderTime }} ms</span>
       </div>
     </div>
     <hr>
@@ -29,6 +36,12 @@
       <h5 class="report__title">Resources</h5>
       <div>
         <span class="data giga">54</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title">Page size</h5>
+      <div>
+        <span class="data kilo">623kb</span>
       </div>
     </div>
     <div class="report--breakdown">
@@ -62,6 +75,19 @@
       <h5 class="report__title legend--other">Other</h5>
       <div class="report__render-time">
         <span class="data beta">7 / 200kb</span>
+      </div>
+    </div>
+    <hr class="hidden">
+    <div class="report">
+      <h5 class="report__title">Historical</h5>
+      <div class="graph">
+        <img src="/images/graph.png">
+        <div class="graph__switch">
+          <button>Speed index</button>
+          <button>Load time</button>
+          <button>Render time</button>
+          <button>Page size</button>
+        </div>
       </div>
     </div>
   </div>

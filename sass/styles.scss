@@ -71,6 +71,11 @@ hr {
   margin-bottom: 2em;
   border: 0;
   background: rgba($color-white,0.25);
+
+  &.hidden {
+    height: 0;
+    margin: 0;
+  }
 }
 
 
@@ -91,8 +96,11 @@ hr {
 }
 
 .report__title {
+  position: relative;
   margin-bottom: 0.5em;
-  color: rgba($color-white,0.25);
+  color: rgba($color-white,0.35);
+
+  a { color: rgba($color-white,0.35); }
 
   &.legend--css {
     @extend %legend;
