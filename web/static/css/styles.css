@@ -166,12 +166,17 @@ hr {
   border: 0;
   background: rgba(243, 255, 255, 0.25);
 }
+/* line 75, ../../../sass/styles.scss */
+hr.hidden {
+  height: 0;
+  margin: 0;
+}
 
-/* line 80, ../../../sass/styles.scss */
+/* line 85, ../../../sass/styles.scss */
 .report__title.legend--css, .report__title.legend--js, .report__title.legend--images, .report__title.legend--other {
   color: #f3ffff;
 }
-/* line 83, ../../../sass/styles.scss */
+/* line 88, ../../../sass/styles.scss */
 .report__title.legend--css:before, .report__title.legend--js:before, .report__title.legend--images:before, .report__title.legend--other:before {
   content: "";
   display: inline-block;
@@ -181,66 +186,71 @@ hr {
   vertical-align: top;
 }
 
-/* line 93, ../../../sass/styles.scss */
+/* line 98, ../../../sass/styles.scss */
 .report__title {
+  position: relative;
   margin-bottom: 0.5em;
-  color: rgba(243, 255, 255, 0.25);
+  color: rgba(243, 255, 255, 0.35);
 }
-/* line 100, ../../../sass/styles.scss */
+/* line 103, ../../../sass/styles.scss */
+.report__title a {
+  color: rgba(243, 255, 255, 0.35);
+}
+/* line 108, ../../../sass/styles.scss */
 .report__title.legend--css:before {
   background: #2e7499;
 }
-/* line 105, ../../../sass/styles.scss */
+/* line 113, ../../../sass/styles.scss */
 .report__title.legend--js:before {
   background: #21a642;
 }
-/* line 110, ../../../sass/styles.scss */
+/* line 118, ../../../sass/styles.scss */
 .report__title.legend--images:before {
   background: #cc2929;
 }
-/* line 115, ../../../sass/styles.scss */
+/* line 123, ../../../sass/styles.scss */
 .report__title.legend--other:before {
   background: yellow;
 }
 
-/* line 119, ../../../sass/styles.scss */
+/* line 127, ../../../sass/styles.scss */
 .report, .report--breakdown {
   display: inline-block;
   margin: 0 2em 2em 0;
 }
 
-/* line 128, ../../../sass/styles.scss */
+/* line 136, ../../../sass/styles.scss */
 .report--breakdown {
   width: 100%;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 128, ../../../sass/styles.scss */
+  /* line 136, ../../../sass/styles.scss */
   .report--breakdown {
     min-width: 18.75em;
   }
 }
 
-/* line 138, ../../../sass/styles.scss */
+/* line 146, ../../../sass/styles.scss */
 .report__score .data {
   font-size: 9em;
 }
-/* line 141, ../../../sass/styles.scss */
+/* line 149, ../../../sass/styles.scss */
 .report__score .data:after {
   content: "";
   font-size: 35%;
 }
-/* line 146, ../../../sass/styles.scss */
+/* line 154, ../../../sass/styles.scss */
 .report__score .data.up:after {
   content: "\25B2";
   color: #21a642;
 }
-/* line 151, ../../../sass/styles.scss */
+/* line 159, ../../../sass/styles.scss */
 .report__score .data.down:after {
   content: "\25BC";
   color: #cc2929;
 }
 
-/* line 158, ../../../sass/styles.scss */
+/* line 166, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -249,7 +259,7 @@ hr {
   display: inline-block;
 }
 
-/* line 163, ../../../sass/styles.scss */
+/* line 171, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -257,33 +267,33 @@ hr {
   padding: 2em 0;
 }
 
-/* line 171, ../../../sass/styles.scss */
+/* line 179, ../../../sass/styles.scss */
 .bar-graph__data--css {
   background: #2e7499;
 }
 
-/* line 175, ../../../sass/styles.scss */
+/* line 183, ../../../sass/styles.scss */
 .bar-graph__data--js {
   background: #21a642;
 }
 
-/* line 179, ../../../sass/styles.scss */
+/* line 187, ../../../sass/styles.scss */
 .bar-graph__data--img {
   background: #cc2929;
 }
 
-/* line 183, ../../../sass/styles.scss */
+/* line 191, ../../../sass/styles.scss */
 .bar-graph__data--other {
   background: yellow;
 }
 
-/* line 188, ../../../sass/styles.scss */
+/* line 196, ../../../sass/styles.scss */
 .report__legend > li {
   display: inline-block;
   margin: 0 1em 0 0;
   font-weight: 300;
 }
-/* line 194, ../../../sass/styles.scss */
+/* line 202, ../../../sass/styles.scss */
 .report__legend > li:before {
   content: "";
   display: inline-block;
@@ -292,7 +302,7 @@ hr {
   margin-right: 0.25em;
   background: #2e7499;
 }
-/* line 204, ../../../sass/styles.scss */
+/* line 212, ../../../sass/styles.scss */
 .report__legend strong {
   display: inline-block;
   margin-right: 0.25em;
@@ -300,24 +310,24 @@ hr {
   text-transform: uppercase;
 }
 
-/* line 212, ../../../sass/styles.scss */
+/* line 220, ../../../sass/styles.scss */
 #line-graph {
   width: 100%;
   height: 300px;
   border: 1px solid #000;
   position: relative;
 }
-/* line 217, ../../../sass/styles.scss */
+/* line 225, ../../../sass/styles.scss */
 #line-graph .point {
   position: absolute;
 }
-/* line 219, ../../../sass/styles.scss */
+/* line 227, ../../../sass/styles.scss */
 #line-graph .point svg {
   position: absolute;
   left: -5px;
   top: -5px;
 }
-/* line 226, ../../../sass/styles.scss */
+/* line 234, ../../../sass/styles.scss */
 #line-graph > svg {
   width: 100%;
   height: 100%;

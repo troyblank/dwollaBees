@@ -7,11 +7,18 @@
   </div>
   <div class="page__body">
     <div class="report">
-      <h5 class="report__title">PageSpeed score</h5>
+      <h5 class="report__title"><a href="https://developers.google.com/speed/docs/insights/using_firefox?hl=de-DE#scores">PageSpeed score</a> &#10033;</h5>
       <div class="report__score">
         <span class="data {{ stats.score.lastChanged.direction }}">{{ data[0].score }}</span>
       </div>
     </div>
+    <div class="report">
+      <h5 class="report__title"><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a> &#10033;</h5>
+      <div>
+        <span class="data giga">2701</span>
+      </div>
+    </div>
+    <hr class="hidden">
     <div class="report">
       <h5 class="report__title">Load time</h5>
       <div class="report__load-time">
@@ -29,6 +36,12 @@
       <h5 class="report__title">Resources</h5>
       <div>
         <span class="data giga">{{ data[0].numberResources }}</span>
+      </div>
+    </div>
+    <div class="report">
+      <h5 class="report__title">Page size</h5>
+      <div>
+        <span class="data kilo">623kb</span>
       </div>
     </div>
     <div class="report--breakdown">
@@ -93,6 +106,19 @@
       <svg viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon points="0 40 5 40 27.5 10 50 50 72.5 25 90 15 100 15 100 100 0 100" fill="#2E7499" />
       </svg>
+    </div>
+    <hr class="hidden">
+    <div class="report">
+      <h5 class="report__title">Historical</h5>
+      <div class="graph">
+        <img src="/images/graph.png">
+        <div class="graph__switch">
+          <button>Speed index</button>
+          <button>Load time</button>
+          <button>Render time</button>
+          <button>Page size</button>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
