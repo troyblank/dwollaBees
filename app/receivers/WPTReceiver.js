@@ -24,7 +24,7 @@ module.exports = function() {
     function startTest(page, callback) {
         var data = '';
 
-        options.path = API_URL + '?url=' + page + '&k=' + API_KEY + '&f=json';
+        options.path = API_URL + '?url=' + page + '&k=' + API_KEY + '&f=json&video=1';
 
         var req = http.request(options, function(res) {
             res.setEncoding('utf8');
@@ -91,8 +91,19 @@ module.exports = function() {
     function parseData(data, page, callback) {
         callback({
             '_page': page,
-            'loadTime': (Number(data.average.firstView.loadTime) + Number(data.average.repeatView.loadTime) / 2),
-            'renderTime': (Number(data.average.firstView.render) + Number(data.average.repeatView.render) / 2)
+            'speedIndex': Number(data.runs['1'].firstView.SpeedIndex),
+
+            'loadTime': (Number(data.runs['1'].firstView.loadTime) + Number(data.runs['1'].repeatView.loadTime) / 2),
+            'renderTime': (Number(data.runs['1'].firstView.render) + Number(data.runs['1'].repeatView.render) / 2),
+
+            'numberJsResources': Number(data.runs['1'].firstView.breakdown.js.requests),
+            'jsResponseBytes': Number(data.runs['1'].firstView.breakdown.js.bytes),
+            'numberCssResources': Number(data.runs['1'].firstView.breakdown.css.requests),
+            'cssResponseBytes': Number(data.runs['1'].firstView.breakdown.css.bytes),
+            'numberImageResources': Number(data.runs['1'].firstView.breakdown.image.requests),
+            'imageResponseBytes': Number(data.runs['1'].firstView.breakdown.image.bytes),
+            'numberOtherResources': Number(data.runs['1'].firstView.breakdown.other.requests),
+            'otherResponseBytes': Number(data.runs['1'].firstView.breakdown.other.bytes)
         });
     }
 

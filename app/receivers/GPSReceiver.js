@@ -30,16 +30,8 @@ module.exports = function() {
             '_page': page,
             'score': data.score,
             'numberResources': data.pageStats.numberResources,
-            'totalRequestBytes': data.pageStats.numberResources,
-            //secondary
+            // //secondary
             'numberStaticResources': data.pageStats.numberStaticResources,
-            'numberJsResources': data.pageStats.numberJsResources,
-            'numberCssResources': data.pageStats.numberCssResources,
-            //Bar chart/graph?
-            'htmlResponseBytes': Number(data.pageStats.htmlResponseBytes),
-            'imageResponseBytes': Number(data.pageStats.imageResponseBytes),
-            'javascriptResponseBytes': Number(data.pageStats.javascriptResponseBytes),
-            'otherResponseBytes': Number(data.pageStats.otherResponseBytes)
         });
     }
 

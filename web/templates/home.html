@@ -9,7 +9,7 @@
     <div class="report">
       <h5 class="report__title"><a href="https://developers.google.com/speed/docs/insights/using_firefox?hl=de-DE#scores">PageSpeed score</a> &#10033;</h5>
       <div class="report__score">
-        <span class="data down">{{ data.score }}</span>
+        <span class="data {{ stats.score.lastChanged.direction }}">{{ data[0].score }}</span>
       </div>
     </div>
     <div class="report">
@@ -22,20 +22,20 @@
     <div class="report">
       <h5 class="report__title">Load time</h5>
       <div class="report__load-time">
-        <span class="data alpha">{{ data.loadTime }} ms</span>
+        <span class="data kilo">{{ data[0].loadTime }} ms</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title">Render time</h5>
       <div class="report__render-time">
-        <span class="data alpha">{{ data.renderTime }} ms</span>
+        <span class="data kilo">{{ data[0].renderTime }} ms</span>
       </div>
     </div>
     <hr>
     <div class="report">
       <h5 class="report__title">Resources</h5>
       <div>
-        <span class="data giga">54</span>
+        <span class="data giga">{{ data[0].numberResources }}</span>
       </div>
     </div>
     <div class="report">
@@ -47,34 +47,34 @@
     <div class="report--breakdown">
       <h5 class="report__title">Breakdown</h5>
       <ul class="bar-graph">
-        <li class="bar-graph__data--css" style="width: 8%"></li
-        ><li class="bar-graph__data--js" style="width: 25%"></li
-        ><li class="bar-graph__data--img" style="width: 50%"></li
-        ><li class="bar-graph__data--other" style="width: 17%"></li>
+        <li class="bar-graph__data--css" style="width: {{ breakdown.cssPercent }}%"></li
+        ><li class="bar-graph__data--js" style="width: {{ breakdown.jsPercent }}%"></li
+        ><li class="bar-graph__data--img" style="width: {{ breakdown.imagePercent }}%"></li
+        ><li class="bar-graph__data--other" style="width: {{ breakdown.otherPercent }}%"></li>
       </ul>
     </div>
     <div class="report">
       <h5 class="report__title legend--css">CSS</h5>
       <div class="report__render-time">
-        <span class="data beta">3 / 200kb</span>
+        <span class="data beta">{{ data[0].numberCssResources }} / {{ breakdown.cssResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--js">JS</h5>
       <div class="report__render-time">
-        <span class="data beta">9 / 200kb</span>
+        <span class="data beta">{{ data[0].numberJsResources }} / {{ breakdown.jsResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--images">Images</h5>
       <div class="report__render-time">
-        <span class="data beta">18 / 200kb</span>
+        <span class="data beta">{{ data[0].numberImageResources }} / {{ breakdown.imageResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--other">Other</h5>
       <div class="report__render-time">
-        <span class="data beta">7 / 200kb</span>
+        <span class="data beta">{{ data[0].numberOtherResources }} / {{ breakdown.otherResponseKbs }}kb</span>
       </div>
     </div>
     <hr class="hidden">

@@ -6,11 +6,15 @@ var _GPSReceiver = require('./receivers/GPSReceiver.js');
 var _WPTReceiver = require('./receivers/WPTReceiver.js');
 //var _GTMReceiver = require('./receivers/GTMReceiver.js');
 
+var _stats = require('./stats.js');
+
 var dwollaBees = {
 
     GPSRetriever: new _GPSReceiver(),
     //GTMRetriever: new _GTMReceiver(),
     WPTRetriever: new _WPTReceiver(),
+
+    stats: null,
 
     pageCount: 0,
     pagesToGet: [
@@ -28,11 +32,13 @@ var dwollaBees = {
     data: new Object(),
 
     initialize: function() {
+        dwollaBees.stats = new _stats(dwollaBees);
         dwollaBees.recieveData();
     },
 
+    //---------------------------------------------------------------------------------------------
     //DATA
-    //-------------------------------------------
+    //---------------------------------------------------------------------------------------------
     recieveData: function() {
         var page = dwollaBees.pagesToGet[dwollaBees.pageCount];
         dwollaBees[dwollaBees.servicesToCall[dwollaBees.serviceCount]].getData(page, dwollaBees.gotData);
@@ -70,8 +76,9 @@ var dwollaBees = {
         });
     },
 
+    //---------------------------------------------------------------------------------------------
     //HANDLERS
-    //-------------------------------------------
+    //---------------------------------------------------------------------------------------------
     gotData: function(data) {
         if (data != null) {
             dwollaBees.tempStoreData(data);
@@ -87,6 +94,7 @@ var dwollaBees = {
         if (dwollaBees.pageCount < dwollaBees.pagesToGet.length) {
             dwollaBees.recieveData();
         } else {
+            dwollaBees.stats.checkForStatChanges();
             dwollaBees.saveData();
         }
     }
