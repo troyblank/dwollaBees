@@ -71,9 +71,6 @@ var server = {
         });
 
         function respond(date, data) {
-            var stats = null;
-
-
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
                 'data': data,
