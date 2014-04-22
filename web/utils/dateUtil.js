@@ -9,6 +9,7 @@ module.exports = function() {
     this.getDaysData = function(originDate, type, amount, page, callback) {
         //type can be daily or monthy.
         //amount is the amount of days or months to go back in time
+        //returns and array of day data via callback
         var days = getDays(originDate, type, amount);
         getData(days, page, callback);
     }

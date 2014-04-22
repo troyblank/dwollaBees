@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var nunjucks = require('nunjucks');
 var _DateUtil = require('./utils/dateUtil.js');
 
@@ -13,7 +14,11 @@ var server = {
 
     DateUtil: new _DateUtil(),
 
+    stats: null,
+    STATS_PATH: './app/data/stats.json',
+
     initialize: function() {
+        server.getStats();
         server.urlConfs();
         server.startWebServer();
     },
@@ -37,6 +42,22 @@ var server = {
         }
     },
 
+    getStats: function(callback) {
+        if (fs.existsSync(server.STATS_PATH)) {
+            fs.readFile(server.STATS_PATH, 'utf8', function(err, data) {
+                server.stats = JSON.parse(data);
+            });
+        }
+    },
+
+    getStat: function(page) {
+        if (server.stats != null) {
+            return server.stats[page];
+        } else {
+            return null;
+        }
+    },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -50,9 +71,13 @@ var server = {
         });
 
         function respond(date, data) {
+            var stats = null;
+
+
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
                 'data': data,
+                'stats': server.getStat(server.page),
                 'breakdown': server.getBreakdownBarData(data[0])
             }));
         }
