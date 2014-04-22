@@ -64,5 +64,35 @@
         <span class="data beta">{{ data[0].numberOtherResources }} / {{ breakdown.otherResponseKbs }}kb</span>
       </div>
     </div>
+    <div id="line-graph">
+      <div class="point" style="left:5%; top:40%;">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="5" fill="#2E7499" />
+        </svg>
+      </div>
+      <div class="point" style="left:27.5%; top:10%;">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="5" fill="#2E7499" />
+        </svg>
+      </div>
+      <div class="point" style="left:50%; top:50%;">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="5" fill="#2E7499" />
+        </svg>
+      </div>
+      <div class="point" style="left:72.5%; top:25%;">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="5" fill="#2E7499" />
+        </svg>
+      </div>
+      <div class="point" style="left:90%; top:15%;">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="5" fill="#2E7499" />
+        </svg>
+      </div>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0 40 5 40 27.5 10 50 50 72.5 25 90 15 100 15 100 100 0 100" fill="#2E7499" />
+      </svg>
+    </div>
   </div>
 {% endblock %}

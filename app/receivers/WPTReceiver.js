@@ -75,8 +75,8 @@ module.exports = function() {
         if (status == undefined) {
             status = data.statusText;
         }
-
         if (status == 'Test Complete') {
+            console.log('\t retrieved data from: ' + jsonURL);
             console.log('WPT data Received for: ' + page);
             parseData(data.data, page, callback);
         } else {

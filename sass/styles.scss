@@ -209,3 +209,25 @@ hr {
   }
 }
 
+#line-graph{
+  width:100%;
+  height:300px;
+  border: 1px solid #000;
+  position:relative;
+  .point {
+    position: absolute;
+    svg {
+      position: absolute;
+      left:-5px;
+      top:-5px;
+    }
+  }
+
+  & > svg {
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0px;
+  }
+}

@@ -12,7 +12,7 @@ module.exports = function(dwollaBees) {
         for (var i = 0; i < dwollaBees.pagesToGet.length; i++) {
             var page = dwollaBees.pagesToGet[i];
             if (stats[page] == undefined) {
-                stats[page] = {};
+                stats[page] = new Object();
             }
             checkForScoreChange(page);
         }
@@ -66,7 +66,9 @@ module.exports = function(dwollaBees) {
     }
 
     function statsReceived(data) {
-        stats = data;
+        if (data != false) {
+            stats = data;
+        }
     }
 
     getStats(statsReceived);
