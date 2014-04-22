@@ -34,34 +34,34 @@
     <div class="report--breakdown">
       <h5 class="report__title">Breakdown</h5>
       <ul class="bar-graph">
-        <li class="bar-graph__data--css" style="width: 8%"></li
-        ><li class="bar-graph__data--js" style="width: 25%"></li
-        ><li class="bar-graph__data--img" style="width: 50%"></li
-        ><li class="bar-graph__data--other" style="width: 17%"></li>
+        <li class="bar-graph__data--css" style="width: {{ breakdown.cssPercent }}%"></li
+        ><li class="bar-graph__data--js" style="width: {{ breakdown.jsPercent }}%"></li
+        ><li class="bar-graph__data--img" style="width: {{ breakdown.imagePercent }}%"></li
+        ><li class="bar-graph__data--other" style="width: {{ breakdown.otherPercent }}%"></li>
       </ul>
     </div>
     <div class="report">
       <h5 class="report__title legend--css">CSS</h5>
       <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberCssResources }} / 200kb</span>
+        <span class="data beta">{{ data[0].numberCssResources }} / {{ breakdown.cssResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--js">JS</h5>
       <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberJsResources }} / 200kb</span>
+        <span class="data beta">{{ data[0].numberJsResources }} / {{ breakdown.jsResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--images">Images</h5>
       <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberImageResources }} / 200kb</span>
+        <span class="data beta">{{ data[0].numberImageResources }} / {{ breakdown.imageResponseKbs }}kb</span>
       </div>
     </div>
     <div class="report">
       <h5 class="report__title legend--other">Other</h5>
       <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberOtherResources }} / 200kb</span>
+        <span class="data beta">{{ data[0].numberOtherResources }} / {{ breakdown.otherResponseKbs }}kb</span>
       </div>
     </div>
   </div>

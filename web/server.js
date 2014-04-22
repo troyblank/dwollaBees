@@ -23,6 +23,20 @@ var server = {
         console.log('Listening on port 8000');
     },
 
+    getBreakdownBarData: function(d) {
+        var total = d.jsResponseBytes + d.cssResponseBytes + d.imageResponseBytes + d.otherResponseBytes;
+        return {
+            'jsResponseKbs': Math.round((d.jsResponseBytes / 1024) * 10) / 10,
+            'jsPercent': 100 * (d.jsResponseBytes / total),
+            'cssResponseKbs': Math.round((d.cssResponseBytes / 1024) * 10) / 10,
+            'cssPercent': 100 * (d.cssResponseBytes / total),
+            'imageResponseKbs': Math.round((d.imageResponseBytes / 1024) * 10) / 10,
+            'imagePercent': 100 * (d.imageResponseBytes / total),
+            'otherResponseKbs': Math.round((d.otherResponseBytes / 1024) * 10) / 10,
+            'otherPercent': 100 * (d.otherResponseBytes / total)
+        }
+    },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -38,7 +52,8 @@ var server = {
         function respond(date, data) {
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
-                'data': data
+                'data': data,
+                'breakdown': server.getBreakdownBarData(data[0])
             }));
         }
     },
