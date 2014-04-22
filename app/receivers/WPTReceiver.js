@@ -102,8 +102,8 @@ module.exports = function() {
             'cssResponseBytes': Number(data.runs['1'].firstView.breakdown.css.bytes),
             'numberImageResources': Number(data.runs['1'].firstView.breakdown.image.requests),
             'imageResponseBytes': Number(data.runs['1'].firstView.breakdown.image.bytes),
-            'numberOtherResources': Number(data.runs['1'].firstView.breakdown.js.requests),
-            'otherResponseBytes': Number(data.runs['1'].firstView.breakdown.js.bytes)
+            'numberOtherResources': Number(data.runs['1'].firstView.breakdown.other.requests),
+            'otherResponseBytes': Number(data.runs['1'].firstView.breakdown.other.bytes)
         });
     }
 
