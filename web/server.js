@@ -20,7 +20,7 @@ var server = {
     LINE_GRAPH_PROPS: ['speedIndex', 'loadTime', 'renderTime', 'pageSize'],
     LINE_GRAPH_TARGETS: {
         'speedIndex': 1000,
-        'loadTime': null,
+        'loadTime': 2000,
         'renderTime': null,
         'pageSize': null
     },
@@ -60,6 +60,15 @@ var server = {
                 if (lineGraphData[prop] == undefined) {
                     var min = server.stats[server.page].minMax[prop].min;
                     var max = server.stats[server.page].minMax[prop].max;
+                    var target = server.LINE_GRAPH_TARGETS[prop];
+
+                    if(target != null){
+                        if (target < min) {
+                            min = target;
+                        } else if (target > max) {
+                            max = target;
+                        }
+                    }
 
                     lineGraphData[prop] = new Object();
                     lineGraphData[prop].min = min;
