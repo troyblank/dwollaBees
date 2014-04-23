@@ -77,14 +77,36 @@ module.exports = function() {
         }
         if (status == 'Test Complete') {
             console.log('\t retrieved data from: ' + jsonURL);
-            console.log('WPT data Received for: ' + page);
-            parseData(data.data, page, callback);
+
+            var dataIsValid = validateData(data);
+
+            if (dataIsValid) {
+                console.log('WPT data Received for: ' + page);
+                parseData(data.data, page, callback);
+            } else {
+                console.log('DATA WAS NOT VALID!!! -- retrying test.');
+                startTest(page, callback);
+            }
+
+
         } else {
             setTimeout(function() {
                 console.log('\t' + status)
                 testState(data, page, callback, jsonURL);
             }, RETRY_TIME);
         }
+    }
+
+    function validateData(data) {
+        try {
+            if (data.data.runs['1'].firstView == null) {
+                return false;
+            }
+        } catch (e) {
+            return false;
+        }
+
+        return true;
     }
 
 
@@ -96,6 +118,7 @@ module.exports = function() {
             'loadTime': (Number(data.runs['1'].firstView.loadTime) + Number(data.runs['1'].repeatView.loadTime) / 2),
             'renderTime': (Number(data.runs['1'].firstView.render) + Number(data.runs['1'].repeatView.render) / 2),
 
+            'pageSize': Number(data.runs['1'].firstView.bytesIn),
             'numberJsResources': Number(data.runs['1'].firstView.breakdown.js.requests),
             'jsResponseBytes': Number(data.runs['1'].firstView.breakdown.js.bytes),
             'numberCssResources': Number(data.runs['1'].firstView.breakdown.css.requests),
