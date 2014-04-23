@@ -3,7 +3,20 @@
 
 {% block content %}
   <div class="page__header">
-    <h4 class="title">dwolla.com - {{ date }}</h4>
+    <div class="page-title">
+      <nav class="site-nav">
+        <span class="site-nav__current" id="js-site-nav-btn">dwolla.com</span>
+        <ul class="site-nav__list" id="js-site-nav">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="">dwolla.com/register</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="">dwolla.com/login</a>
+          </li>
+        </ul>
+      </nav>
+      {{ date }}
+    </div>
   </div>
   <div class="page__body">
     <div class="report">
@@ -41,7 +54,7 @@
     <div class="report">
       <h5 class="report__title">Page size</h5>
       <div>
-        <span class="data kilo">{{ (data[0].pageSize/1024)|round(1) }}kb</span>
+        <span class="data kilo">{{ (data[0].pageSize/1024)|round(1) }} kb</span>
       </div>
     </div>
     <div class="report--wide">
@@ -97,4 +110,12 @@
   </script>
   <script src="/scripts/util/animUtil.js"></script>
   <script src="/scripts/control/lineGraph.js"></script>
+  <script>
+    var siteNavBtn = document.getElementById('js-site-nav-btn'),
+        siteNav = document.getElementById('js-site-nav');
+
+    siteNavBtn.addEventListener('click', function(){
+      siteNav.classList.toggle("open");
+    });
+  </script>
 {% endblock %}
