@@ -99,7 +99,7 @@ module.exports = function() {
 
     function validateData(data) {
         try {
-            if (data.runs['1'].firstView == null) {
+            if (data.data.runs['1'].firstView == null) {
                 return false;
             }
         } catch (e) {
