@@ -77,14 +77,36 @@ module.exports = function() {
         }
         if (status == 'Test Complete') {
             console.log('\t retrieved data from: ' + jsonURL);
-            console.log('WPT data Received for: ' + page);
-            parseData(data.data, page, callback);
+
+            var dataIsValid = validateData(data);
+
+            if (dataIsValid) {
+                console.log('WPT data Received for: ' + page);
+                parseData(data.data, page, callback);
+            } else {
+                console.log('DATA WAS NOT VALID!!! -- retrying test.');
+                startTest(page, callback);
+            }
+
+
         } else {
             setTimeout(function() {
                 console.log('\t' + status)
                 testState(data, page, callback, jsonURL);
             }, RETRY_TIME);
         }
+    }
+
+    function validateData(data) {
+        try {
+            if (data.runs['1'].firstView == null) {
+                return false;
+            }
+        } catch (e) {
+            return false;
+        }
+
+        return true;
     }
 
 
