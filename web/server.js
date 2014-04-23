@@ -18,19 +18,17 @@ var server = {
     STATS_PATH: './app/data/stats.json',
 
     LINE_GRAPH_PROPS: ['speedIndex', 'loadTime', 'renderTime', 'pageSize'],
+    LINE_GRAPH_TARGETS: {
+        'speedIndex': 1000,
+        'loadTime': null,
+        'renderTime': null,
+        'pageSize': null
+    },
 
     initialize: function() {
         server.getStats();
         server.urlConfs();
-
-
-        var data = null;
-
-        server.DateUtil.getDaysData(new Date(), 'daily', 5, server.page, function(data) {
-            console.log(server.getLineGraphData(data));
-        });
-
-        //server.startWebServer();
+        server.startWebServer();
     },
 
     startWebServer: function() {
@@ -60,13 +58,27 @@ var server = {
             for (var j = 0; j < server.LINE_GRAPH_PROPS.length; j++) {
                 var prop = server.LINE_GRAPH_PROPS[j];
                 if (lineGraphData[prop] == undefined) {
-                    lineGraphData[prop] = new Array();
+                    var min = server.stats[server.page].minMax[prop].min;
+                    var max = server.stats[server.page].minMax[prop].max;
+
+                    lineGraphData[prop] = new Object();
+                    lineGraphData[prop].min = min;
+                    lineGraphData[prop].max = max;
+                    lineGraphData[prop].target = server.LINE_GRAPH_TARGETS[prop];
+                    lineGraphData[prop].data = new Array();
                 }
 
                 if (node != null) {
-                    lineGraphData[prop].push(node[prop]);
+                    var val = node[prop];
+                    lineGraphData[prop].data.push({
+                        'val': val,
+                        'percent': val / (max - min)
+                    });
                 } else {
-                    lineGraphData[prop].push(0);
+                    lineGraphData[prop].data.push({
+                        'val': 0,
+                        'precent': 0
+                    });
                 }
             }
         }
@@ -104,8 +116,6 @@ var server = {
 
         function respond(date, data) {
 
-            console.log(server.getLineGraphData(data));
-
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
                 'data': data,
@@ -117,10 +127,22 @@ var server = {
     },
 
     //---------------------------------------------------------------------------------------------
+    //API
+    //---------------------------------------------------------------------------------------------
+    lineGraphDataAPI: function(req, res) {
+        var d = new Date();
+        res.send(200, {
+            date: d
+        });
+    },
+
+    //---------------------------------------------------------------------------------------------
     //URL CONFS
     //---------------------------------------------------------------------------------------------
     urlConfs: function() {
         server.app.get('/', server.home);
+        //api
+        server.app.get('/lineGrapData', server.lineGraphDataAPI);
         //static
         server.app.use(express.static(__dirname + '/static'));
     }
