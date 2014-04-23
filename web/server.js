@@ -72,12 +72,12 @@ var server = {
                     var val = node[prop];
                     lineGraphData[prop].data.push({
                         'val': val,
-                        'percent': val / (max - min)
+                        'percent': (val - min) / (max - min) * 100
                     });
                 } else {
                     lineGraphData[prop].data.push({
                         'val': 0,
-                        'precent': 0
+                        'percent': 0
                     });
                 }
             }
@@ -118,10 +118,10 @@ var server = {
 
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
+                'page': server.page,
                 'data': data,
                 'stats': server.getStat(server.page),
-                'breakdown': server.getBreakdownBarData(data[0]),
-                'lineGraphData': server.getLineGraphData(data)
+                'breakdown': server.getBreakdownBarData(data[0])
             }));
         }
     },
@@ -130,10 +130,19 @@ var server = {
     //API
     //---------------------------------------------------------------------------------------------
     lineGraphDataAPI: function(req, res) {
-        var d = new Date();
-        res.send(200, {
-            date: d
-        });
+        var page = req.query.page;
+
+        if (page != undefined) {
+            server.DateUtil.getDaysData(new Date(), 'daily', 5, page, function(data) {
+                respond(data);
+            });
+        } else {
+            res.send(400);
+        }
+
+        function respond(data) {
+            res.send(200, server.getLineGraphData(data));
+        }
     },
 
     //---------------------------------------------------------------------------------------------
