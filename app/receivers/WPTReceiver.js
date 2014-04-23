@@ -96,6 +96,7 @@ module.exports = function() {
             'loadTime': (Number(data.runs['1'].firstView.loadTime) + Number(data.runs['1'].repeatView.loadTime) / 2),
             'renderTime': (Number(data.runs['1'].firstView.render) + Number(data.runs['1'].repeatView.render) / 2),
 
+            'pageSize': Number(data.runs['1'].firstView.bytesIn),
             'numberJsResources': Number(data.runs['1'].firstView.breakdown.js.requests),
             'jsResponseBytes': Number(data.runs['1'].firstView.breakdown.js.bytes),
             'numberCssResources': Number(data.runs['1'].firstView.breakdown.css.requests),
