@@ -25,6 +25,7 @@ node app/script.js - runs daily data grab
 * speedIndex (first view)
 * loadTime (first view averaged with a repeat view)
 * renderTime (first view averaged with a repeat view)
+* pageSize (first view)
 * numberJsResources (first view)
 * jsResponseBytes (first view)
 * numberCssResources (first view)
