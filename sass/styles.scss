@@ -98,7 +98,8 @@ hr {
 
 .report__title {
   position: relative;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
+  font-size: $font-size-zeta;
   color: rgba($color-white,0.35);
 
   a { color: rgba($color-white,0.35); }
@@ -251,6 +252,7 @@ hr {
     padding: 0.5em 1em;
     background: rgba($color-white,0.25);
     border: 0;
+    color: $color-dark;
     font-family: $font-sans-serif;
     cursor: pointer;
     @include appearance(none);

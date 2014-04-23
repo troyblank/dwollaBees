@@ -189,62 +189,63 @@ hr.hidden {
 /* line 99, ../../../sass/styles.scss */
 .report__title {
   position: relative;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
+  font-size: 0.875em;
   color: rgba(243, 255, 255, 0.35);
 }
-/* line 104, ../../../sass/styles.scss */
+/* line 105, ../../../sass/styles.scss */
 .report__title a {
   color: rgba(243, 255, 255, 0.35);
 }
-/* line 109, ../../../sass/styles.scss */
+/* line 110, ../../../sass/styles.scss */
 .report__title.legend--css:before {
   background: #2e7499;
 }
-/* line 114, ../../../sass/styles.scss */
+/* line 115, ../../../sass/styles.scss */
 .report__title.legend--js:before {
   background: #21a642;
 }
-/* line 119, ../../../sass/styles.scss */
+/* line 120, ../../../sass/styles.scss */
 .report__title.legend--images:before {
   background: #cc2929;
 }
-/* line 124, ../../../sass/styles.scss */
+/* line 125, ../../../sass/styles.scss */
 .report__title.legend--other:before {
   background: yellow;
 }
 
-/* line 128, ../../../sass/styles.scss */
+/* line 129, ../../../sass/styles.scss */
 .report, .report--wide {
   display: inline-block;
   margin: 0 2em 2em 0;
 }
 
-/* line 137, ../../../sass/styles.scss */
+/* line 138, ../../../sass/styles.scss */
 .report--wide {
   width: 100%;
 }
 
-/* line 143, ../../../sass/styles.scss */
+/* line 144, ../../../sass/styles.scss */
 .report__score .data {
   font-size: 9em;
 }
-/* line 146, ../../../sass/styles.scss */
+/* line 147, ../../../sass/styles.scss */
 .report__score .data:after {
   content: "";
   font-size: 35%;
 }
-/* line 151, ../../../sass/styles.scss */
+/* line 152, ../../../sass/styles.scss */
 .report__score .data.up:after {
   content: "\25B2";
   color: #21a642;
 }
-/* line 156, ../../../sass/styles.scss */
+/* line 157, ../../../sass/styles.scss */
 .report__score .data.down:after {
   content: "\25BC";
   color: #cc2929;
 }
 
-/* line 163, ../../../sass/styles.scss */
+/* line 164, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -253,7 +254,7 @@ hr.hidden {
   display: inline-block;
 }
 
-/* line 168, ../../../sass/styles.scss */
+/* line 169, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -261,33 +262,33 @@ hr.hidden {
   padding: 2em 0;
 }
 
-/* line 176, ../../../sass/styles.scss */
+/* line 177, ../../../sass/styles.scss */
 .bar-graph__data--css {
   background: #2e7499;
 }
 
-/* line 180, ../../../sass/styles.scss */
+/* line 181, ../../../sass/styles.scss */
 .bar-graph__data--js {
   background: #21a642;
 }
 
-/* line 184, ../../../sass/styles.scss */
+/* line 185, ../../../sass/styles.scss */
 .bar-graph__data--img {
   background: #cc2929;
 }
 
-/* line 188, ../../../sass/styles.scss */
+/* line 189, ../../../sass/styles.scss */
 .bar-graph__data--other {
   background: yellow;
 }
 
-/* line 193, ../../../sass/styles.scss */
+/* line 194, ../../../sass/styles.scss */
 .report__legend > li {
   display: inline-block;
   margin: 0 1em 0 0;
   font-weight: 300;
 }
-/* line 199, ../../../sass/styles.scss */
+/* line 200, ../../../sass/styles.scss */
 .report__legend > li:before {
   content: "";
   display: inline-block;
@@ -296,7 +297,7 @@ hr.hidden {
   margin-right: 0.25em;
   background: #2e7499;
 }
-/* line 209, ../../../sass/styles.scss */
+/* line 210, ../../../sass/styles.scss */
 .report__legend strong {
   display: inline-block;
   margin-right: 0.25em;
@@ -304,24 +305,24 @@ hr.hidden {
   text-transform: uppercase;
 }
 
-/* line 222, ../../../sass/styles.scss */
+/* line 223, ../../../sass/styles.scss */
 #line-graph {
   width: 100%;
   height: 300px;
   position: relative;
   margin-bottom: 1em;
 }
-/* line 228, ../../../sass/styles.scss */
+/* line 229, ../../../sass/styles.scss */
 #line-graph .point {
   position: absolute;
 }
-/* line 231, ../../../sass/styles.scss */
+/* line 232, ../../../sass/styles.scss */
 #line-graph .point svg {
   position: absolute;
   left: -5px;
   top: -5px;
 }
-/* line 238, ../../../sass/styles.scss */
+/* line 239, ../../../sass/styles.scss */
 #line-graph > svg {
   width: 100%;
   height: 100%;
@@ -330,19 +331,20 @@ hr.hidden {
   top: 0px;
 }
 
-/* line 248, ../../../sass/styles.scss */
+/* line 249, ../../../sass/styles.scss */
 .graph-switches > button {
   display: inline-block;
   margin: 0 0.5em 0 0;
   padding: 0.5em 1em;
   background: rgba(243, 255, 255, 0.25);
   border: 0;
+  color: #212621;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   cursor: pointer;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-/* line 258, ../../../sass/styles.scss */
+/* line 260, ../../../sass/styles.scss */
 .graph-switches > button.active, .graph-switches > button:hover {
   background: rgba(243, 255, 255, 0.5);
 }
