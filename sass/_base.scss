@@ -53,6 +53,8 @@ $bp-large:  em(1280px);
 
 // Colors
 $color-dark:  #212621;
+$color-med:   scale-color($color-dark, $lightness: 15%);
+$color-light: scale-color($color-dark, $lightness: 30%);
 $color-white: #f3ffff;
 $color-blue:  #2e7499;
 $color-green: #21a642;
@@ -74,6 +76,7 @@ $font-size-epsilon:   em(16px);
 $font-size-zeta:      em(14px);
 $font-size-milli:     em(12px);
 
+$base-font-size: $font-size-epsilon;
 
 
 // Google Web Fonts

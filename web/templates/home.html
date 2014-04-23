@@ -3,7 +3,20 @@
 
 {% block content %}
   <div class="page__header">
-    <h4 class="title">dwolla.com - {{ date }}</h4>
+    <div class="page-title">
+      <nav class="site-nav">
+        <span class="site-nav__current" id="js-site-nav-btn">dwolla.com</span>
+        <ul class="site-nav__list" id="js-site-nav">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="">dwolla.com/register</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="">dwolla.com/login</a>
+          </li>
+        </ul>
+      </nav>
+      {{ date }}
+    </div>
   </div>
   <div class="page__body">
     <div class="report">
@@ -96,4 +109,12 @@
     var CURRENT_PAGE = '{{ page }}';
   </script>
   <script src="/scripts/lineGraph.js"></script>
+  <script>
+    var siteNavBtn = document.getElementById('js-site-nav-btn'),
+        siteNav = document.getElementById('js-site-nav');
+
+    siteNavBtn.addEventListener('click', function(){
+      siteNav.classList.toggle("open");
+    });
+  </script>
 {% endblock %}
