@@ -17,10 +17,20 @@ var server = {
     stats: null,
     STATS_PATH: './app/data/stats.json',
 
+    LINE_GRAPH_PROPS: ['speedIndex', 'loadTime', 'renderTime', 'pageSize'],
+
     initialize: function() {
         server.getStats();
         server.urlConfs();
-        server.startWebServer();
+
+
+        var data = null;
+
+        server.DateUtil.getDaysData(new Date(), 'daily', 5, server.page, function(data) {
+            console.log(server.getLineGraphData(data));
+        });
+
+        //server.startWebServer();
     },
 
     startWebServer: function() {
@@ -40,6 +50,28 @@ var server = {
             'otherResponseKbs': Math.round((d.otherResponseBytes / 1024) * 10) / 10,
             'otherPercent': 100 * (d.otherResponseBytes / total)
         }
+    },
+
+    getLineGraphData: function(d) {
+        var lineGraphData = new Object();
+
+        for (var i = 0; i < d.length; i++) {
+            var node = d[i];
+            for (var j = 0; j < server.LINE_GRAPH_PROPS.length; j++) {
+                var prop = server.LINE_GRAPH_PROPS[j];
+                if (lineGraphData[prop] == undefined) {
+                    lineGraphData[prop] = new Array();
+                }
+
+                if (node != null) {
+                    lineGraphData[prop].push(node[prop]);
+                } else {
+                    lineGraphData[prop].push(0);
+                }
+            }
+        }
+
+        return lineGraphData;
     },
 
     getStats: function(callback) {
@@ -71,11 +103,15 @@ var server = {
         });
 
         function respond(date, data) {
+
+            console.log(server.getLineGraphData(data));
+
             res.send(nunjucks.render('home.html', {
                 'date': server.DateUtil.prettyUpDate(date),
                 'data': data,
                 'stats': server.getStat(server.page),
-                'breakdown': server.getBreakdownBarData(data[0])
+                'breakdown': server.getBreakdownBarData(data[0]),
+                'lineGraphData': server.getLineGraphData(data)
             }));
         }
     },

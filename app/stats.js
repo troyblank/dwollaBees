@@ -8,6 +8,8 @@ module.exports = function(dwollaBees) {
 
     var STATS_PATH = './app/data/stats.json';
 
+    var MIN_MAX_CHECKS = ['speedIndex', 'loadTime', 'renderTime', 'pageSize'];
+
     this.checkForStatChanges = function() {
         for (var i = 0; i < dwollaBees.pagesToGet.length; i++) {
             var page = dwollaBees.pagesToGet[i];
@@ -15,6 +17,7 @@ module.exports = function(dwollaBees) {
                 stats[page] = new Object();
             }
             checkForScoreChange(page);
+            checkForMinMaxChanges(page);
         }
 
         saveStats(stats);
@@ -41,6 +44,33 @@ module.exports = function(dwollaBees) {
             stats[page].score.lastChanged.currentValue = dwollaBees.data[page].score;
             stats[page].score.lastChanged.direction = 'up';
             stats[page].score.lastChanged.date = new Date();
+        }
+    }
+
+    function checkForMinMaxChanges(page) {
+        if (stats[page].minMax != undefined) {
+            for (var i = 0; i < MIN_MAX_CHECKS.length; i++) {
+                var prop = MIN_MAX_CHECKS[i];
+                var min = stats[page].minMax[prop].min;
+                var max = stats[page].minMax[prop].max;
+                var val = dwollaBees.data[page][prop];
+                if (val < min) {
+                    stats[page].minMax[prop].min = val;
+                } else if (val > max) {
+                    stats[page].minMax[prop].max = val;
+                }
+            }
+        } else {
+            //first time storing
+            stats[page].minMax = {};
+            for (var i = 0; i < MIN_MAX_CHECKS.length; i++) {
+                var prop = MIN_MAX_CHECKS[i];
+                var val = dwollaBees.data[page][prop];
+                stats[page].minMax[prop] = {
+                    'min': val,
+                    'max': val
+                };
+            }
         }
     }
 

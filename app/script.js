@@ -4,14 +4,12 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var _GPSReceiver = require('./receivers/GPSReceiver.js');
 var _WPTReceiver = require('./receivers/WPTReceiver.js');
-//var _GTMReceiver = require('./receivers/GTMReceiver.js');
 
 var _stats = require('./stats.js');
 
 var dwollaBees = {
 
     GPSRetriever: new _GPSReceiver(),
-    //GTMRetriever: new _GTMReceiver(),
     WPTRetriever: new _WPTReceiver(),
 
     stats: null,
