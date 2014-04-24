@@ -95,6 +95,8 @@ var server = {
             }
         }
 
+        console.log(lineGraphData['pageSize']);
+
         return lineGraphData;
     },
 
