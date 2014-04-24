@@ -57,12 +57,14 @@ var server = {
             var node = d[i];
             for (var j = 0; j < server.LINE_GRAPH_PROPS.length; j++) {
                 var prop = server.LINE_GRAPH_PROPS[j];
+
                 if (lineGraphData[prop] == undefined) {
                     var min = server.stats[server.page].minMax[prop].min;
                     var max = server.stats[server.page].minMax[prop].max;
+
                     var target = server.LINE_GRAPH_TARGETS[prop];
 
-                    if(target != null){
+                    if (target != null) {
                         if (target < min) {
                             min = target;
                         } else if (target > max) {
@@ -79,9 +81,10 @@ var server = {
 
                 if (node != null) {
                     var val = node[prop];
+
                     lineGraphData[prop].data.push({
                         'val': val,
-                        'percent': (val - min) / (max - min) * 100
+                        'percent': (val - lineGraphData[prop].min) / (lineGraphData[prop].max - lineGraphData[prop].min) * 100
                     });
                 } else {
                     lineGraphData[prop].data.push({
