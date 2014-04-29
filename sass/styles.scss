@@ -281,11 +281,14 @@ hr {
 
   .point {
     position: absolute;
+    cursor: pointer;
+    z-index:10;
 
     svg {
       position: absolute;
       left:-5px;
       top:-5px;
+      z-index:5;
     }
   }
 
@@ -295,6 +298,14 @@ hr {
     position:absolute;
     left:0;
     top:0px;
+  }
+
+  .talk-bubble{
+    position: absolute;
+    padding: 10px;
+    background:#fff;
+    color: $color-blue;
+    z-index: 15;
   }
 }
 

@@ -142,10 +142,11 @@ var server = {
     //API
     //---------------------------------------------------------------------------------------------
     lineGraphDataAPI: function(req, res) {
+        var amount = req.query.amount;
         var page = req.query.page;
 
         if (page != undefined) {
-            server.DateUtil.getDaysData(new Date(), 'daily', 5, page, function(data) {
+            server.DateUtil.getDaysData(new Date(), 'daily', amount, page, function(data) {
                 respond(data);
             });
         } else {

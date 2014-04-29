@@ -9,9 +9,16 @@ var lineGraph = {
     PROP: 'speedIndex',
     HOR_PADDING: 3,
 
+    GRAPH_AMMOUNT: 32,
     ANIM_SPEED: 50,
 
+    TALK_BUBBLE_PADDING: {
+        'bottom': 10
+    },
+
     initialize: function() {
+        console.log($('#line-graph .talk-bubble'));
+
         lineGraph.getData();
     },
 
@@ -26,6 +33,7 @@ var lineGraph = {
 
     addListeners: function() {
         $('.graph-switches button').on('click', lineGraph.propChangeClickHand);
+        $('#line-graph .point').on('mouseenter', lineGraph.pointHoverHand);
     },
 
     propChangeClickHand: function() {
@@ -38,6 +46,19 @@ var lineGraph = {
             lineGraph.updateTitle();
             lineGraph.updateGraph();
         }
+    },
+
+    pointHoverHand: function() {
+        lineGraph.moveTalkBubbleToPoint(this);
+    },
+
+    //---------------------------------------------------------------------------------------------
+    //TALK BUBBLE
+    //---------------------------------------------------------------------------------------------
+    moveTalkBubbleToPoint: function(point) {
+        var pos = $(point).position();
+        $('#line-graph .talk-bubble').css('top', pos.top - $('#line-graph .talk-bubble').outerHeight() - lineGraph.TALK_BUBBLE_PADDING.bottom);
+        $('#line-graph .talk-bubble').css('left', pos.left - $('#line-graph .talk-bubble').outerWidth() / 2);
     },
 
     //---------------------------------------------------------------------------------------------
@@ -129,18 +150,18 @@ var lineGraph = {
     },
 
     addGraph: function() {
-        $('#line-graph').empty();
+        //$('#line-graph').empty();
 
         var d = lineGraph.data[lineGraph.PROP];
         var x = lineGraph.HOR_PADDING;
         var horInc = (100 - (lineGraph.HOR_PADDING * 2)) / (d.data.length - 1);
 
-        var html = '';
+        var html = '<div class="points">';
 
         var i = d.data.length - 1;
         while (i >= 0) {
             var top = (100 - d.data[i].percent);
-            html += '<div class="point" style="left:' + x + '%; top:' + top + '%;" data-top="' + top + '"><svg height="10" width="10"><circle cx="5" cy="5" r="5" fill="#2E7499" /></svg></div>';
+            html += '<div class="point" style="left:' + x + '%; top:' + top + '%;" data-top="' + top + '"><svg height="10" width="10"><circle cx="5" cy="5" r="3" fill="#2E7499" /></svg></div>';
 
             lineGraph.polyPoints.push({
                 'x': x,
@@ -151,10 +172,10 @@ var lineGraph = {
             i--;
         }
 
-        html += '<svg viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="#2E7499" /></svg>';
+        html += '</div><svg viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="#2E7499" /></svg>';
 
         var targetPercent = 100 - ((d.target - d.min) / (d.max - d.min) * 100);
-        html += '<svg class="target-rule" viewBox="0 0 100 100" preserveAspectRatio="none" data-alpha="1"><line x1="0" x2="100" y1="' + targetPercent + '" y2="' + targetPercent + '" stroke="#555555" stroke-width="1" stroke-dasharray="1"/></svg>';
+        html += '<svg class="target-rule" viewBox="0 0 100 100" preserveAspectRatio="none" data-alpha="1"><line x1="0" x2="100" y1="' + targetPercent + '" y2="' + targetPercent + '" stroke="#FFF" stroke-width="1" stroke-dasharray="1"/></svg>';
 
         $('#line-graph').append(html);
 
@@ -183,7 +204,8 @@ var lineGraph = {
             'type': 'GET',
             'url': '/lineGrapData',
             'data': {
-                'page': CURRENT_PAGE
+                'page': CURRENT_PAGE,
+                'amount': lineGraph.GRAPH_AMMOUNT
             },
             'success': function(data) {
                 lineGraph.gotData(data);
