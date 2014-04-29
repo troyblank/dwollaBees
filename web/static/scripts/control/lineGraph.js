@@ -17,8 +17,6 @@ var lineGraph = {
     },
 
     initialize: function() {
-        console.log($('#line-graph .talk-bubble'));
-
         lineGraph.getData();
     },
 
@@ -34,6 +32,7 @@ var lineGraph = {
     addListeners: function() {
         $('.graph-switches button').on('click', lineGraph.propChangeClickHand);
         $('#line-graph .point').on('mouseenter', lineGraph.pointHoverHand);
+        $('#line-graph .point').on('mouseleave', lineGraph.pointLeaveHand);
     },
 
     propChangeClickHand: function() {
@@ -49,12 +48,23 @@ var lineGraph = {
     },
 
     pointHoverHand: function() {
+        $('#line-graph .talk-bubble').show();
+        lineGraph.updateTalkBubbleData(this);
         lineGraph.moveTalkBubbleToPoint(this);
+    },
+
+    pointLeaveHand: function() {
+        $('#line-graph .talk-bubble').hide();
     },
 
     //---------------------------------------------------------------------------------------------
     //TALK BUBBLE
     //---------------------------------------------------------------------------------------------
+    updateTalkBubbleData: function(point) {
+        var html = '<span class="value">' + $(point).data('val') + '</span><br /><span class="date">' + $(point).data('date') + '</span>';
+        $('#line-graph .talk-bubble').html(html);
+    },
+
     moveTalkBubbleToPoint: function(point) {
         var pos = $(point).position();
         $('#line-graph .talk-bubble').css('top', pos.top - $('#line-graph .talk-bubble').outerHeight() - lineGraph.TALK_BUBBLE_PADDING.bottom);
@@ -73,8 +83,9 @@ var lineGraph = {
     },
 
     animLoop: function() {
-        for (var prop in lineGraph.animQue) {
-            var node = lineGraph.animQue[prop];
+        //for (var prop in lineGraph.animQue) {
+        for (var i = 0; i < lineGraph.animQue.length; i++) {
+            var node = lineGraph.animQue[i];
             node.time++;
 
             var val = AnimUtil.easeInQuad(node.time, node.start, node.change, lineGraph.ANIM_SPEED);
@@ -90,17 +101,20 @@ var lineGraph = {
                     break;
             }
 
+            //console.log();
             if (node.time >= lineGraph.ANIM_SPEED) {
-                delete lineGraph.animQue[prop];
+                lineGraph.animQue.splice(i, 1);
+                i--;
             }
         }
 
-        if (lineGraph.animQue.length == 0) {
-            console.log('DONE!!!');
-        }
 
         lineGraph.updatePolygon();
-        requestAnimFrame(lineGraph.animLoop);
+        if (lineGraph.animQue.length != 0) {
+            requestAnimFrame(lineGraph.animLoop);
+        } else {
+            lineGraph.animating = false;
+        }
     },
 
     //---------------------------------------------------------------------------------------------
@@ -150,8 +164,6 @@ var lineGraph = {
     },
 
     addGraph: function() {
-        //$('#line-graph').empty();
-
         var d = lineGraph.data[lineGraph.PROP];
         var x = lineGraph.HOR_PADDING;
         var horInc = (100 - (lineGraph.HOR_PADDING * 2)) / (d.data.length - 1);
@@ -161,7 +173,7 @@ var lineGraph = {
         var i = d.data.length - 1;
         while (i >= 0) {
             var top = (100 - d.data[i].percent);
-            html += '<div class="point" style="left:' + x + '%; top:' + top + '%;" data-top="' + top + '"><svg height="10" width="10"><circle cx="5" cy="5" r="3" fill="#2E7499" /></svg></div>';
+            html += '<div class="point" style="left:' + x + '%; top:' + top + '%;" data-top="' + top + '" data-val="' + d.data[i].val + '" data-date="' + d.data[i].date + '"><svg height="10" width="10"><circle cx="5" cy="5" r="3" fill="#2E7499" /></svg></div>';
 
             lineGraph.polyPoints.push({
                 'x': x,

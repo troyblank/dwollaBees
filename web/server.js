@@ -84,12 +84,14 @@ var server = {
 
                     lineGraphData[prop].data.push({
                         'val': val,
-                        'percent': (val - lineGraphData[prop].min) / (lineGraphData[prop].max - lineGraphData[prop].min) * 100
+                        'percent': (val - lineGraphData[prop].min) / (lineGraphData[prop].max - lineGraphData[prop].min) * 100,
+                        'date': server.DateUtil.prettyUpDate(node.date)
                     });
                 } else {
                     lineGraphData[prop].data.push({
                         'val': 0,
-                        'percent': 0
+                        'percent': 0,
+                        'date': 'N/A'
                     });
                 }
             }
