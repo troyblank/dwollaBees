@@ -9,8 +9,10 @@ node app/script.js - runs daily data grab
 * * *
 
 ## Pages we are monitoring
-* http://dwolla.com
-* https://www.dwolla.com/register
+* https://dwolla.com
+* https://dwolla.com/login
+* https://dwolla.com/about
+* https://dwolla.com/register
 
 * * *
 
