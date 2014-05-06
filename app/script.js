@@ -19,7 +19,7 @@ var dwollaBees = {
         'https://dwolla.com',
         'https://dwolla.com/login',
         'https://dwolla.com/about',
-        'https://www.dwolla.com/register'
+        'https://dwolla.com/register'
     ],
     serviceCount: 0,
     servicesToCall: [
