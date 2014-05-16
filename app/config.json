@@ -1,0 +1,10 @@
+{
+    "config": {
+        "pagesToGet": [
+            "https://dwolla.com",
+            "https://dwolla.com/login",
+            "https://dwolla.com/about",
+            "https://dwolla.com/register"
+        ]
+    }
+}

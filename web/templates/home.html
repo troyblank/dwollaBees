@@ -5,14 +5,13 @@
   <div class="page__header">
     <div class="page-title">
       <nav class="site-nav">
-        <span class="site-nav__current" id="js-site-nav-btn">dwolla.com</span>
+        <span class="site-nav__current" id="js-site-nav-btn">{{ page | replace("https://", "") }}</span>
         <ul class="site-nav__list" id="js-site-nav">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="">dwolla.com/register</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="">dwolla.com/login</a>
-          </li>
+          {% for page in pages %}
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="/?page={{ page | replace }}">{{ page | replace("https://", "") }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </nav>
       {{ date }}

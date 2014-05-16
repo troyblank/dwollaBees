@@ -15,12 +15,7 @@ var dwollaBees = {
     stats: null,
 
     pageCount: 0,
-    pagesToGet: [
-        'https://dwolla.com',
-        'https://dwolla.com/login',
-        'https://dwolla.com/about',
-        'https://dwolla.com/register'
-    ],
+    pagesToGet: null,
     serviceCount: 0,
     servicesToCall: [
         'GPSRetriever',
@@ -29,10 +24,21 @@ var dwollaBees = {
 
     data: new Object(),
 
+    CONFIG_PATH: './app/config.json',
+
     initialize: function() {
+        dwollaBees.getPages();
         dwollaBees.stats = new _stats(dwollaBees);
         dwollaBees.recieveData();
     },
+
+    getPages: function(d) {
+        if (fs.existsSync(dwollaBees.CONFIG_PATH)) {
+            var data = fs.readFileSync(dwollaBees.CONFIG_PATH, 'utf8');
+            dwollaBees.pagesToGet = JSON.parse(data).config.pagesToGet;
+        }
+    },
+
 
     //---------------------------------------------------------------------------------------------
     //DATA
