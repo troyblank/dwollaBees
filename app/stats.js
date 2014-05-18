@@ -2,11 +2,13 @@
 //score | if it's up or down from the last change
 module.exports = function(dwollaBees) {
     var fs = require('fs');
+    var mkdirp = require('mkdirp');
 
     var dwollaBees = dwollaBees;
     var stats = new Object();
 
-    var STATS_PATH = './app/data/stats.json';
+    var STATS_PATH = './app/data/';
+    var STATS_FILE = 'stats.json';
 
     var MIN_MAX_CHECKS = ['speedIndex', 'loadTime', 'renderTime', 'pageSize'];
 
@@ -88,10 +90,12 @@ module.exports = function(dwollaBees) {
 
         var str = JSON.stringify(data);
 
-        fs.writeFile(STATS_PATH, str, function(e) {
-            if (e) {
-                console.log(e);
-            }
+        mkdirp(STATS_PATH, function() {
+            fs.writeFile(STATS_PATH+STATS_FILE, str, function(e) {
+                if (e) {
+                    console.log(e);
+                }
+            });
         });
     }
 
