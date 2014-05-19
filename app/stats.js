@@ -77,8 +77,9 @@ module.exports = function(dwollaBees) {
     }
 
     function getStats(callback) {
-        if (fs.existsSync(STATS_PATH)) {
-            fs.readFile(STATS_PATH, 'utf8', function(err, data) {
+        var filePath = STATS_PATH+STATS_FILE;
+        if (fs.existsSync(filePath)) {
+            fs.readFile(filePath, 'utf8', function(err, data) {
                 callback(JSON.parse(data));
             });
         } else {
