@@ -8,6 +8,17 @@
   h2 {
     @extend %font-oswald;
     font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+.compare__range {
+  input[type="text"] {
+    @extend %font-oswald;
+    display: inline-block;
+    padding: 0.5em;
+    border: 0;
+    font-size: $font-size-delta;
     visibility: visible;
   }
 }
