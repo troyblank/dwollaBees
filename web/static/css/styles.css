@@ -1,9 +1,9 @@
-/* line 85, ../../../sass/_base.scss */
-.page-title, .report .data, .report--wide .data, .report__legend > li, .graph-switches > button {
+/* line 97, ../../../sass/_base.scss */
+.page-title, .report .data, .report--wide .data, .report__legend > li, .talk-bubble .value, .graph-switches > button {
   font-family: 'Oswald', sans-serif;
 }
 
-/* line 5, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -174,7 +174,28 @@ hr.hidden {
   margin: 0;
 }
 
-/* line 86, ../../../sass/styles.scss */
+@media screen and (min-aspect-ratio: 16 / 9), screen and (min-aspect-ratio: 16 / 10) {
+  /* line 82, ../../../sass/styles.scss */
+  .page__section {
+    width: 48%;
+    display: inline-block;
+    margin-right: 1%;
+    vertical-align: top;
+  }
+}
+/* line 50, ../../../sass/_base.scss */
+.lt-ie9 .page__section {
+  width: 48%;
+  display: inline-block;
+  margin-right: 1%;
+  vertical-align: top;
+}
+/* line 90, ../../../sass/styles.scss */
+.page__section + .page__section {
+  margin: 0 0 0 1%;
+}
+
+/* line 100, ../../../sass/styles.scss */
 .site-nav {
   display: inline-block;
   position: relative;
@@ -182,7 +203,7 @@ hr.hidden {
   overflow: visible;
 }
 
-/* line 93, ../../../sass/styles.scss */
+/* line 107, ../../../sass/styles.scss */
 .site-nav__current {
   display: inline-block;
   padding: 0.5em;
@@ -190,7 +211,7 @@ hr.hidden {
   color: #f3ffff;
   cursor: pointer;
 }
-/* line 100, ../../../sass/styles.scss */
+/* line 114, ../../../sass/styles.scss */
 .site-nav__current:after {
   content: " \25BC";
   display: inline-block;
@@ -200,19 +221,19 @@ hr.hidden {
   vertical-align: middle;
 }
 
-/* line 110, ../../../sass/styles.scss */
+/* line 124, ../../../sass/styles.scss */
 .site-nav__list {
   display: none;
   position: absolute;
   top: 100%;
   z-index: 100;
 }
-/* line 116, ../../../sass/styles.scss */
+/* line 130, ../../../sass/styles.scss */
 .site-nav__list.open {
   display: block;
 }
 
-/* line 121, ../../../sass/styles.scss */
+/* line 135, ../../../sass/styles.scss */
 .site-nav__link {
   display: inline-block;
   padding: 0.5em;
@@ -221,16 +242,16 @@ hr.hidden {
   color: #f3ffff;
   text-decoration: none;
 }
-/* line 129, ../../../sass/styles.scss */
+/* line 143, ../../../sass/styles.scss */
 .site-nav__link:hover {
   background: #5e6c5e;
 }
 
-/* line 139, ../../../sass/styles.scss */
+/* line 153, ../../../sass/styles.scss */
 .report__title.legend--css, .report__title.legend--js, .report__title.legend--images, .report__title.legend--other {
   color: #f3ffff;
 }
-/* line 142, ../../../sass/styles.scss */
+/* line 156, ../../../sass/styles.scss */
 .report__title.legend--css:before, .report__title.legend--js:before, .report__title.legend--images:before, .report__title.legend--other:before {
   content: "";
   display: inline-block;
@@ -240,66 +261,66 @@ hr.hidden {
   vertical-align: top;
 }
 
-/* line 152, ../../../sass/styles.scss */
+/* line 166, ../../../sass/styles.scss */
 .report__title {
   position: relative;
   margin-bottom: 0.25em;
   font-size: 0.875em;
   color: #5e6c5e;
 }
-/* line 158, ../../../sass/styles.scss */
+/* line 172, ../../../sass/styles.scss */
 .report__title a {
   color: #5e6c5e;
 }
-/* line 163, ../../../sass/styles.scss */
+/* line 177, ../../../sass/styles.scss */
 .report__title.legend--css:before {
   background: #2e7499;
 }
-/* line 168, ../../../sass/styles.scss */
+/* line 182, ../../../sass/styles.scss */
 .report__title.legend--js:before {
   background: #21a642;
 }
-/* line 173, ../../../sass/styles.scss */
+/* line 187, ../../../sass/styles.scss */
 .report__title.legend--images:before {
   background: #cc2929;
 }
-/* line 178, ../../../sass/styles.scss */
+/* line 192, ../../../sass/styles.scss */
 .report__title.legend--other:before {
   background: yellow;
 }
 
-/* line 182, ../../../sass/styles.scss */
+/* line 196, ../../../sass/styles.scss */
 .report, .report--wide {
   display: inline-block;
   margin: 0 2em 2em 0;
 }
 
-/* line 191, ../../../sass/styles.scss */
+/* line 205, ../../../sass/styles.scss */
 .report--wide {
   width: 100%;
 }
 
-/* line 197, ../../../sass/styles.scss */
+/* line 211, ../../../sass/styles.scss */
 .report__score .data {
   font-size: 144px;
 }
-/* line 200, ../../../sass/styles.scss */
+/* line 214, ../../../sass/styles.scss */
 .report__score .data:after {
   content: "";
   font-size: 35%;
 }
-/* line 205, ../../../sass/styles.scss */
+/* line 219, ../../../sass/styles.scss */
 .report__score .data.up:after {
   content: "\25B2";
   color: #21a642;
 }
-/* line 210, ../../../sass/styles.scss */
+/* line 224, ../../../sass/styles.scss */
 .report__score .data.down:after {
   content: "\25BC";
   color: #cc2929;
 }
 
-/* line 217, ../../../sass/styles.scss */
+/* line 231, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -308,7 +329,7 @@ hr.hidden {
   display: inline-block;
 }
 
-/* line 222, ../../../sass/styles.scss */
+/* line 236, ../../../sass/styles.scss */
 .bar-graph__data--css,
 .bar-graph__data--js,
 .bar-graph__data--img,
@@ -316,33 +337,33 @@ hr.hidden {
   padding: 2em 0;
 }
 
-/* line 230, ../../../sass/styles.scss */
+/* line 244, ../../../sass/styles.scss */
 .bar-graph__data--css {
   background: #2e7499;
 }
 
-/* line 234, ../../../sass/styles.scss */
+/* line 248, ../../../sass/styles.scss */
 .bar-graph__data--js {
   background: #21a642;
 }
 
-/* line 238, ../../../sass/styles.scss */
+/* line 252, ../../../sass/styles.scss */
 .bar-graph__data--img {
   background: #cc2929;
 }
 
-/* line 242, ../../../sass/styles.scss */
+/* line 256, ../../../sass/styles.scss */
 .bar-graph__data--other {
   background: yellow;
 }
 
-/* line 247, ../../../sass/styles.scss */
+/* line 261, ../../../sass/styles.scss */
 .report__legend > li {
   display: inline-block;
   margin: 0 1em 0 0;
   font-weight: 300;
 }
-/* line 253, ../../../sass/styles.scss */
+/* line 267, ../../../sass/styles.scss */
 .report__legend > li:before {
   content: "";
   display: inline-block;
@@ -351,7 +372,7 @@ hr.hidden {
   margin-right: 0.25em;
   background: #2e7499;
 }
-/* line 263, ../../../sass/styles.scss */
+/* line 277, ../../../sass/styles.scss */
 .report__legend strong {
   display: inline-block;
   margin-right: 0.25em;
@@ -359,27 +380,27 @@ hr.hidden {
   text-transform: uppercase;
 }
 
-/* line 276, ../../../sass/styles.scss */
+/* line 290, ../../../sass/styles.scss */
 #line-graph {
   width: 100%;
   height: 300px;
   position: relative;
   margin-bottom: 1em;
 }
-/* line 282, ../../../sass/styles.scss */
+/* line 296, ../../../sass/styles.scss */
 #line-graph .point {
   position: absolute;
   cursor: pointer;
   z-index: 10;
 }
-/* line 287, ../../../sass/styles.scss */
+/* line 301, ../../../sass/styles.scss */
 #line-graph .point svg {
   position: absolute;
   left: -5px;
   top: -5px;
   z-index: 5;
 }
-/* line 295, ../../../sass/styles.scss */
+/* line 309, ../../../sass/styles.scss */
 #line-graph > svg {
   width: 100%;
   height: 100%;
@@ -387,7 +408,7 @@ hr.hidden {
   left: 0;
   top: 0px;
 }
-/* line 303, ../../../sass/styles.scss */
+/* line 317, ../../../sass/styles.scss */
 #line-graph .talk-bubble {
   position: absolute;
   display: none;
@@ -397,7 +418,16 @@ hr.hidden {
   z-index: 15;
 }
 
-/* line 314, ../../../sass/styles.scss */
+/* line 328, ../../../sass/styles.scss */
+.talk-bubble .value {
+  font-weight: 700;
+}
+/* line 333, ../../../sass/styles.scss */
+.talk-bubble .date {
+  font-size: 0.875em;
+}
+
+/* line 339, ../../../sass/styles.scss */
 .graph-switches > button {
   display: inline-block;
   margin: 0 0.5em 0 0;
@@ -411,7 +441,7 @@ hr.hidden {
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-/* line 327, ../../../sass/styles.scss */
+/* line 352, ../../../sass/styles.scss */
 .graph-switches > button.active, .graph-switches > button:hover {
   background: #5e6c5e;
   color: #f3ffff;

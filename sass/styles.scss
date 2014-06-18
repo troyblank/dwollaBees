@@ -79,6 +79,20 @@ hr {
   }
 }
 
+.page__section {
+  @include mq-widescreen("true") {
+    width: 48%;
+    display: inline-block;
+    margin-right: 1%;
+    vertical-align: top;
+  }
+
+  & + .page__section {
+    margin: 0 0 0 1%;
+  }
+}
+
+
 
 // Nav
 // ==========================================================================
@@ -307,6 +321,17 @@ hr {
     background:#fff;
     color: $color-blue;
     z-index: 15;
+  }
+}
+
+.talk-bubble {
+  .value {
+    @extend %font-oswald;
+    font-weight: 700;
+  }
+
+  .date {
+    font-size: $font-size-zeta;
   }
 }
 

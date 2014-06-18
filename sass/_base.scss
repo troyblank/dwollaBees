@@ -41,6 +41,18 @@
   }
 }
 
+@mixin mq-widescreen($old-ie: "false") {
+  @media screen and (min-aspect-ratio: 16/9), screen and (min-aspect-ratio: 16/10) {
+    @content;
+  }
+
+  @if $old-ie == "true" {
+    .lt-ie9 & {
+      @content;
+    }
+  }
+}
+
 
 
 // Variables
