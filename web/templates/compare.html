@@ -10,8 +10,8 @@
       <div class="comparison__header">
         <h2>Compare dates</h2>
         <div class="col-50">
-          <input value="Range 1 Date 1" class="datepicker">
-          <input value="Range 1 Date 2" class="datepicker">
+          <input value="Range 1 Date 1" class="datepicker" id="a-in-date">
+          <input value="Range 1 Date 2" class="datepicker" d="a-out-date">
         </div>
         <div class="col-50">
           <input value="Range 2 Date 1" class="datepicker">
@@ -24,11 +24,8 @@
 {% endblock %}
 
 {% block script %}
-
-<script src="/scripts/lib/pikaday.js"></script>
-<script src="/scripts/lib/pikaday.jquery.js"></script>
-<script>
-  $('.datepicker').pikaday();
-</script>
-
+  <script src="/scripts/lib/pikaday.js"></script>
+  <script src="/scripts/lib/pikaday.jquery.js"></script>
+  <script src="/scripts/control/baseUI.js"></script>
+  <script src="/scripts/control/comparer.js"></script>
 {% endblock %}
