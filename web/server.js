@@ -171,6 +171,10 @@ var server = {
         }
     },
 
+    compareView: function(req, res) {
+        res.send(nunjucks.render('compare.html'));
+    },
+
     //---------------------------------------------------------------------------------------------
     //API
     //---------------------------------------------------------------------------------------------
@@ -196,7 +200,7 @@ var server = {
     //---------------------------------------------------------------------------------------------
     urlConfs: function() {
         server.app.get('/', server.home);
-        //server.app.get('/page/:base', server.pageView);
+        server.app.get('/compare/', server.compareView);
         //api
         server.app.get('/lineGrapData', server.lineGraphDataAPI);
         //static
