@@ -200,7 +200,7 @@ var server = {
     //---------------------------------------------------------------------------------------------
     urlConfs: function() {
         server.app.get('/', server.home);
-        server.app.get('/compare/', server.compareView);
+        server.app.get('/compare', server.compareView);
         //api
         server.app.get('/lineGrapData', server.lineGraphDataAPI);
         //static
