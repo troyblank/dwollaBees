@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="/css/pikaday.css">
+{% endblock %}
 
 {% block content %}
-  <div class="page__header">
-    stuff goes here
+  <div class="page__body">
+    <div class="comparison">
+      <div class="comparison__header">
+        <h2>Compare dates</h2>
+        <div class="col-50">
+          <input value="Range 1 Date 1" class="datepicker">
+          <input value="Range 1 Date 2" class="datepicker">
+        </div>
+        <div class="col-50">
+          <input value="Range 2 Date 1" class="datepicker">
+          <input value="Range 2 Date 2" class="datepicker">
+          <button type="button">Compare</button>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}
 
 {% block script %}
+
+<script src="/scripts/vendor/pikaday.js"></script>
+<script src="/scripts/vendor/pikaday.jquery.js"></script>
+
+<script>
+  $('.datepicker').pikaday();
+</script>
 
 {% endblock %}
