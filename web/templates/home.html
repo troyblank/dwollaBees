@@ -114,13 +114,6 @@
     var CURRENT_PAGE = '{{ page }}';
   </script>
   <script src="/scripts/util/animUtil.js"></script>
+  <script src="/scripts/control/baseUI.js"></script>
   <script src="/scripts/control/lineGraph.js"></script>
-  <script>
-    var siteNavBtn = document.getElementById('js-site-nav-btn'),
-        siteNav = document.getElementById('js-site-nav');
-
-    siteNavBtn.addEventListener('click', function(){
-      siteNav.classList.toggle("open");
-    });
-  </script>
 {% endblock %}
