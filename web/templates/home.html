@@ -18,88 +18,92 @@
     </div>
   </div>
   <div class="page__body">
-    <div class="report">
-      <h5 class="report__title"><a href="https://developers.google.com/speed/docs/insights/using_firefox?hl=de-DE#scores">PageSpeed score</a> &#10033;</h5>
-      <div class="report__score">
-        <span class="data {{ stats.score.lastChanged.direction }}">{{ data[0].score }}</span>
+    <div class="page__section">
+      <div class="report">
+        <h5 class="report__title"><a href="https://developers.google.com/speed/docs/insights/using_firefox?hl=de-DE#scores">PageSpeed score</a> &#10033;</h5>
+        <div class="report__score">
+          <span class="data {{ stats.score.lastChanged.direction }}">{{ data[0].score }}</span>
+        </div>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title"><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a> &#10033;</h5>
-      <div>
-        <span class="data giga">{{ data[0].speedIndex }}</span>
+      <div class="report">
+        <h5 class="report__title"><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a> &#10033;</h5>
+        <div>
+          <span class="data giga">{{ data[0].speedIndex }}</span>
+        </div>
       </div>
-    </div>
-    <hr class="hidden">
-    <div class="report">
-      <h5 class="report__title">Load time</h5>
-      <div class="report__load-time">
-        <span class="data kilo">{{ data[0].loadTime }} ms</span>
+      <hr class="hidden">
+      <div class="report">
+        <h5 class="report__title">Load time</h5>
+        <div class="report__load-time">
+          <span class="data kilo">{{ data[0].loadTime }} ms</span>
+        </div>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title">Render time</h5>
-      <div class="report__render-time">
-        <span class="data kilo">{{ data[0].renderTime }} ms</span>
+      <div class="report">
+        <h5 class="report__title">Render time</h5>
+        <div class="report__render-time">
+          <span class="data kilo">{{ data[0].renderTime }} ms</span>
+        </div>
       </div>
-    </div>
-    <hr>
-    <div class="report">
-      <h5 class="report__title">Resources</h5>
-      <div>
-        <span class="data giga">{{ data[0].numberResources }}</span>
+      <hr>
+      <div class="report">
+        <h5 class="report__title">Resources</h5>
+        <div>
+          <span class="data giga">{{ data[0].numberResources }}</span>
+        </div>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title">Page size</h5>
-      <div>
-        <span class="data kilo">{{ (data[0].pageSize/1024)|round(1) }} kb</span>
+      <div class="report">
+        <h5 class="report__title">Page size</h5>
+        <div>
+          <span class="data kilo">{{ (data[0].pageSize/1024)|round(1) }} kb</span>
+        </div>
       </div>
-    </div>
-    <div class="report--wide">
-      <h5 class="report__title">Breakdown</h5>
-      <ul class="bar-graph">
-        <li class="bar-graph__data--css" style="width: {{ breakdown.cssPercent }}%"></li
-        ><li class="bar-graph__data--js" style="width: {{ breakdown.jsPercent }}%"></li
-        ><li class="bar-graph__data--img" style="width: {{ breakdown.imagePercent }}%"></li
-        ><li class="bar-graph__data--other" style="width: {{ breakdown.otherPercent }}%"></li>
-      </ul>
-    </div>
-    <div class="report">
-      <h5 class="report__title legend--css">CSS</h5>
-      <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberCssResources }} / {{ breakdown.cssResponseKbs }}kb</span>
+      <div class="report--wide">
+        <h5 class="report__title">Breakdown</h5>
+        <ul class="bar-graph">
+          <li class="bar-graph__data--css" style="width: {{ breakdown.cssPercent }}%"></li
+          ><li class="bar-graph__data--js" style="width: {{ breakdown.jsPercent }}%"></li
+          ><li class="bar-graph__data--img" style="width: {{ breakdown.imagePercent }}%"></li
+          ><li class="bar-graph__data--other" style="width: {{ breakdown.otherPercent }}%"></li>
+        </ul>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title legend--js">JS</h5>
-      <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberJsResources }} / {{ breakdown.jsResponseKbs }}kb</span>
+      <div class="report">
+        <h5 class="report__title legend--css">CSS</h5>
+        <div class="report__render-time">
+          <span class="data beta">{{ data[0].numberCssResources }} / {{ breakdown.cssResponseKbs }}kb</span>
+        </div>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title legend--images">Images</h5>
-      <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberImageResources }} / {{ breakdown.imageResponseKbs }}kb</span>
+      <div class="report">
+        <h5 class="report__title legend--js">JS</h5>
+        <div class="report__render-time">
+          <span class="data beta">{{ data[0].numberJsResources }} / {{ breakdown.jsResponseKbs }}kb</span>
+        </div>
       </div>
-    </div>
-    <div class="report">
-      <h5 class="report__title legend--other">Other</h5>
-      <div class="report__render-time">
-        <span class="data beta">{{ data[0].numberOtherResources }} / {{ breakdown.otherResponseKbs }}kb</span>
+      <div class="report">
+        <h5 class="report__title legend--images">Images</h5>
+        <div class="report__render-time">
+          <span class="data beta">{{ data[0].numberImageResources }} / {{ breakdown.imageResponseKbs }}kb</span>
+        </div>
       </div>
-    </div>
-    <hr>
-    <div class="report--wide">
-      <h5 class="report__title line-graph-title">Historical - Speed index</h5>
-      <div id="line-graph">
-        <div class="talk-bubble"></div>
+      <div class="report">
+        <h5 class="report__title legend--other">Other</h5>
+        <div class="report__render-time">
+          <span class="data beta">{{ data[0].numberOtherResources }} / {{ breakdown.otherResponseKbs }}kb</span>
+        </div>
       </div>
-      <div class="graph-switches">
-        <button class="active" data-prop="speedIndex">Speed index</button>
-        <button data-prop="loadTime">Load time</button>
-        <button data-prop="renderTime">Render time</button>
-        <button data-prop="pageSize">Page size</button>
+      <hr>
+    </div>
+    <div class="page__section">
+      <div class="report--wide">
+        <h5 class="report__title line-graph-title">Historical - Speed index</h5>
+        <div id="line-graph">
+          <div class="talk-bubble"></div>
+        </div>
+        <div class="graph-switches">
+          <button class="active" data-prop="speedIndex">Speed index</button>
+          <button data-prop="loadTime">Load time</button>
+          <button data-prop="renderTime">Render time</button>
+          <button data-prop="pageSize">Page size</button>
+        </div>
       </div>
     </div>
   </div>
