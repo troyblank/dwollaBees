@@ -1,0 +1,13 @@
+.compare {
+
+}
+
+.compare__header {
+  text-align: center;
+
+  h2 {
+    @extend %font-oswald;
+    font-weight: 400;
+    visibility: visible;
+  }
+}

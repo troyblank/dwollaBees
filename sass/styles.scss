@@ -3,6 +3,7 @@
 
 @import "base";
 @import "Compass/reset";
+@import "partials/compare";
 
 
 
@@ -27,6 +28,14 @@ body {
   @include box-sizing(border-box);
 }
 
+.col-50 {
+  @include at-least($bp-small) {
+    width: 48%;
+    display: inline-block;
+    margin-right: 1%;
+    vertical-align: top;
+  }
+}
 
 
 // Font sizing
@@ -85,10 +94,10 @@ hr {
     display: inline-block;
     margin-right: 1%;
     vertical-align: top;
-  }
 
-  & + .page__section {
-    margin: 0 0 0 1%;
+    & + .page__section {
+      margin: 0 0 0 1%;
+    }
   }
 }
 
