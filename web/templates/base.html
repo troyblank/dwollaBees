@@ -17,6 +17,21 @@
   </head>
   <body>
     <div class="page">
+      <div class="page__header">
+        <div class="page-title">
+          <nav class="site-nav">
+            <span class="site-nav__current" id="js-site-nav-btn">{{ page | replace("https://", "") }}</span>
+            <ul class="site-nav__list" id="js-site-nav">
+              {% for page in pages %}
+                <li class="site-nav__item">
+                  <a class="site-nav__link" href="?page={{ page | replace }}">{{ page | replace("https://", "") }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+          {{ date }}
+        </div>
+      </div>
       {% block content %}{% endblock %}
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
