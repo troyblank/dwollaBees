@@ -30,7 +30,7 @@ body {
 
 .col-50 {
   margin-bottom: 2em;
-  
+
   @include at-least($bp-small) {
     width: 48%;
     display: inline-block;
@@ -349,22 +349,7 @@ hr {
 
 .graph-switches {
   & > button {
-    @extend %font-oswald;
-    display: inline-block;
-    margin: 0 0.5em 0 0;
-    padding: 0.5em 1em;
-    background: $color-med;
-    border: 0;
+    @extend %button;
     font-size: $font-size-milli;
-    color: rgba($color-white,0.5);
-    cursor: pointer;
-    text-transform: uppercase;
-    @include appearance(none);
-
-    &.active,
-    &:hover {
-      background: $color-light;
-      color: $color-white;
-    }
   }
 }
