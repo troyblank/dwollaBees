@@ -172,7 +172,10 @@ var server = {
     },
 
     compareView: function(req, res) {
-        res.send(nunjucks.render('compare.html'));
+        res.send(nunjucks.render('compare.html', {
+            'page': server.page,
+            'pages': server.pages
+        }));
     },
 
     //---------------------------------------------------------------------------------------------
