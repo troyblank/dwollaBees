@@ -3,10 +3,13 @@
 }
 
 .compare__header {
-  text-align: center;
+  margin-bottom: 3em;
+  //text-align: center;
 
   h2 {
     @extend %font-oswald;
+    margin-bottom: 0.5em;
+    font-size: $font-size-kilo;
     font-weight: 400;
     text-transform: uppercase;
   }
@@ -16,9 +19,14 @@
   input[type="text"] {
     @extend %font-oswald;
     display: inline-block;
-    padding: 0.5em;
+    margin: 0 0.5em 0.5em 0;
+    padding: 0.5em 1em;
     border: 0;
     font-size: $font-size-delta;
     visibility: visible;
+
+    @include at-least($bp-large) {
+      margin-bottom: 0;
+    }
   }
 }

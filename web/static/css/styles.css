@@ -1,6 +1,30 @@
 /* line 97, ../../../sass/_base.scss */
-.compare__header h2, .compare__range input[type="text"], .page-title, .report .data, .report--wide .data, .report__legend > li, .talk-bubble .value, .graph-switches > button {
+.button,
+.graph-switches > button, .compare__header h2, .compare__range input[type="text"], .page-title, .report .data, .report--wide .data, .report__legend > li, .talk-bubble .value {
   font-family: 'Oswald', sans-serif;
+}
+
+/* line 106, ../../../sass/_base.scss */
+.button,
+.graph-switches > button {
+  display: inline-block;
+  margin: 0 0.5em 0 0;
+  padding: 0.5em 1em;
+  background: #404940;
+  border: 0;
+  font-size: 1em;
+  color: rgba(243, 255, 255, 0.5);
+  cursor: pointer;
+  text-transform: uppercase;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+/* line 120, ../../../sass/_base.scss */
+.button.active, .button:hover,
+.graph-switches > button.active,
+.graph-switches > button:hover {
+  background: #5e6c5e;
+  color: #f3ffff;
 }
 
 /* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.19/stylesheets/Compass/reset/_utilities.scss */
@@ -70,21 +94,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 5, ../../../sass/partials/_compare.scss */
 .compare__header {
-  text-align: center;
+  margin-bottom: 3em;
 }
-/* line 8, ../../../sass/partials/_compare.scss */
+/* line 9, ../../../sass/partials/_compare.scss */
 .compare__header h2 {
+  margin-bottom: 0.5em;
+  font-size: 3em;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-/* line 16, ../../../sass/partials/_compare.scss */
+/* line 19, ../../../sass/partials/_compare.scss */
 .compare__range input[type="text"] {
   display: inline-block;
-  padding: 0.5em;
+  margin: 0 0.5em 0.5em 0;
+  padding: 0.5em 1em;
   border: 0;
   font-size: 1.125em;
   visibility: visible;
+}
+@media screen and (min-width: 80em) {
+  /* line 19, ../../../sass/partials/_compare.scss */
+  .compare__range input[type="text"] {
+    margin-bottom: 0;
+  }
 }
 
 /* line 13, ../../../sass/styles.scss */
@@ -467,20 +500,5 @@ hr.hidden {
 
 /* line 351, ../../../sass/styles.scss */
 .graph-switches > button {
-  display: inline-block;
-  margin: 0 0.5em 0 0;
-  padding: 0.5em 1em;
-  background: #404940;
-  border: 0;
   font-size: 0.75em;
-  color: rgba(243, 255, 255, 0.5);
-  cursor: pointer;
-  text-transform: uppercase;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-/* line 364, ../../../sass/styles.scss */
-.graph-switches > button.active, .graph-switches > button:hover {
-  background: #5e6c5e;
-  color: #f3ffff;
 }
