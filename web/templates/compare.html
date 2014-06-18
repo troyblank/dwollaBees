@@ -6,17 +6,24 @@
 
 {% block content %}
   <div class="page__body">
-    <div class="comparison">
-      <div class="comparison__header">
-        <h2>Compare dates</h2>
+    <div class="compare">
+      <div class="compare__header">
+        <h2>Compare data</h2>
+        <div class="compare__range col-50">
+          <input value="Range 1 Date 1" class="datepicker" type="text" readonly id="a-in-date" >
+          <input value="Range 1 Date 2" class="datepicker" type="text" readonly id="a-out-date" >
+        </div>
+        <div class="compare__range col-50">
+          <input value="Range 2 Date 1" class="datepicker" type="text" readonly id="b-in-date">
+          <input value="Range 2 Date 2" class="datepicker" type="text" readonly id="b-out-date">
+        </div>
+      </div>
+      <div class="compare__reports">
         <div class="col-50">
-          <input value="Range 1 Date 1" class="datepicker" readonly id="a-in-date">
-          <input value="Range 1 Date 2" class="datepicker" readonly id="a-out-date">
+          <h5 class="report__title">Compare 1</h5>
         </div>
         <div class="col-50">
-          <input value="Range 2 Date 1" class="datepicker" readonly id="b-in-date">
-          <input value="Range 2 Date 2" class="datepicker" readonly id="b-out-date">
-          <button type="button">Compare</button>
+          <h5 class="report__title">Compare 2</h5>
         </div>
       </div>
     </div>
