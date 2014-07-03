@@ -100,7 +100,7 @@ module.exports = function() {
     function validateData(data) {
         try {
             //Sometimes speed test gives back bad data for reasons unknown, if so retry test.
-            if (data.runs['1'].firstView == null || data.runs['1'].firstView.SpeedIndex <= 0) {
+            if (data.runs['1'].firstView == null || data.runs['1'].repeatView == null || data.runs['1'].firstView.SpeedIndex <= 0) {
                 return false;
             }
         } catch (e) {
