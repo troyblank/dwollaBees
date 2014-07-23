@@ -55,6 +55,7 @@ var server = {
     },
 
     getPages: function(d) {
+        //get dwolla urls to populate page select drop down.
         if (fs.existsSync(server.CONFIG_PATH)) {
             var data = fs.readFileSync(server.CONFIG_PATH, 'utf8');
             server.pages = JSON.parse(data).config.pagesToGet;
@@ -140,6 +141,29 @@ var server = {
         }
     },
 
+    getAveragedDayData: function(data) {
+        var combined = new Object();
+
+        var i = data.length - 1;
+        while (i >= 0) {
+            var day = data[i];
+            for (var prop in day) {
+                if (combined[prop] == undefined) {
+                    combined[prop] = 0;
+                }
+                combined[prop] += Number(day[prop]);
+
+            }
+            i--;
+        }
+
+        for (var prop in combined) {
+            combined[prop] = Math.round((combined[prop] / data.length) * 100) / 100;
+        }
+
+        return combined;
+    },
+
     //---------------------------------------------------------------------------------------------
     //VIEWS
     //---------------------------------------------------------------------------------------------
@@ -154,7 +178,7 @@ var server = {
         var today = new Date();
         var data = null;
 
-        server.DateUtil.getDaysData(new Date(), 'daily', 5, server.page, function(data) {
+        server.DateUtil.getDaysData(new Date(), 'daily', 1, server.page, function(data) {
             respond(data[0].date, data);
         });
 
@@ -164,7 +188,7 @@ var server = {
                 'date': server.DateUtil.prettyUpDate(date),
                 'page': server.page,
                 'pages': server.pages,
-                'data': data,
+                'data': data[0],
                 'stats': server.getStat(server.page),
                 'breakdown': server.getBreakdownBarData(data[0]),
             }));
@@ -198,6 +222,20 @@ var server = {
         }
     },
 
+    rangeDataAPI: function(req, res) {
+        //this gets averaged data given two date ranges
+        var start = Number(req.query.start);
+        var end = Number(req.query.end);
+
+        var daysBackwarkds = (end - start) / (1000 * 60 * 60 * 24) + 1;
+
+        server.DateUtil.getDaysData(new Date(end), 'daily', daysBackwarkds, server.page, function(data) {
+            var data = server.getAveragedDayData(data);
+            data.frame = req.query.frame;
+            res.send(200, data);
+        });
+    },
+
     //---------------------------------------------------------------------------------------------
     //URL CONFS
     //---------------------------------------------------------------------------------------------
@@ -205,6 +243,7 @@ var server = {
         server.app.get('/', server.home);
         server.app.get('/compare', server.compareView);
         //api
+        server.app.get('/rangeData', server.rangeDataAPI);
         server.app.get('/lineGrapData', server.lineGraphDataAPI);
         //static
         server.app.use(express.static(__dirname + '/static'));
