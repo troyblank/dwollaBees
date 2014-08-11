@@ -19,4 +19,5 @@ node_modules
 ehthumbs.db
 Thumbs.db
 
-app/data/*
+# Ignore this once we have a way to backup data
+# app/data/*
